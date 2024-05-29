@@ -1,4 +1,6 @@
-class GameContext {
+package GameState;
+
+public class GameContext {
     private GameState state;
     private String playerName;
 

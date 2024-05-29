@@ -1,3 +1,5 @@
+package GameState;
+
 import java.util.Scanner;
 
 class CreatingGameState implements GameState {
