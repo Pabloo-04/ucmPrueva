@@ -1,11 +1,11 @@
 package PokemonFactory.Pokemon.Fire;
 
-import PokemonFactory.Pokemon.Attack.AttackFire;
-import PokemonFactory.Pokemon.Attack.AttackScratch;
+import PokemonFactory.Pokemon.Attack.FireAttack;
+import PokemonFactory.Pokemon.Attack.ScratchAttack;
 import PokemonFactory.Pokemon.POKEMONTYPE;
 import PokemonFactory.Pokemon.Pokemon;
 
-public class Charmander extends Pokemon implements AttackScratch , AttackFire {
+public class Charmander extends Pokemon implements ScratchAttack, FireAttack {
     public Charmander(String name, int hp, int xp, int speed, POKEMONTYPE pokemontype,String attackName,int damage) {
         super("Charmander", 30, 30, 60, POKEMONTYPE.FIRE, attackName,damage);
     }
@@ -28,8 +28,8 @@ public class Charmander extends Pokemon implements AttackScratch , AttackFire {
 
         switch (enemy.getPokemontype()){
             case PSYCHIC, WATER -> enemy.setHp(enemy.getHp() - (damage*(1 + (getXp() -30 )/100))/2);
-            case NORMAL,FIRE -> enemy.setHp(enemy.getHp() - (damage-3)*(1 + (getXp() -30 )/100));
-            case GRASS -> enemy.setHp(enemy.getHp() - (damage-3)*(1 + (getXp() -30 )/100)*2);
+            case NORMAL,FIRE -> enemy.setHp(enemy.getHp() - damage*(1 + (getXp() -30 )/100));
+            case GRASS -> enemy.setHp(enemy.getHp() - (damage)*(1 + (getXp() -30 )/100)*2);
 
         }
 

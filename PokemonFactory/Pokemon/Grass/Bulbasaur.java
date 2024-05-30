@@ -1,11 +1,11 @@
 package PokemonFactory.Pokemon.Grass;
 
-import PokemonFactory.Pokemon.Attack.AttackGrass;
-import PokemonFactory.Pokemon.Attack.AttackScratch;
+import PokemonFactory.Pokemon.Attack.GrassAttack;
+import PokemonFactory.Pokemon.Attack.ScratchAttack;
 import PokemonFactory.Pokemon.POKEMONTYPE;
 import PokemonFactory.Pokemon.Pokemon;
 
-public class Bulbasaur extends Pokemon implements AttackScratch, AttackGrass {
+public class Bulbasaur extends Pokemon implements ScratchAttack, GrassAttack {
     public Bulbasaur(String name, int hp, int xp, int speed, POKEMONTYPE pokemontype,String attackName, int damage) {
         super("Bulbasaur", 45, 30, 45, POKEMONTYPE.GRASS,attackName,damage);
     }
@@ -26,8 +26,8 @@ public class Bulbasaur extends Pokemon implements AttackScratch, AttackGrass {
         damage=10;
         switch (enemy.getPokemontype()){
             case PSYCHIC, FIRE -> enemy.setHp(enemy.getHp() - (damage*(1 + (getXp() -30 )/100))/2);
-            case NORMAL,GRASS -> enemy.setHp(enemy.getHp() - (damage-3)*(1 + (getXp() -30 )/100));
-            case WATER -> enemy.setHp(enemy.getHp() - (damage-3)*(1 + (getXp() -30)/100)*2);
+            case NORMAL,GRASS -> enemy.setHp(enemy.getHp() - (damage)*(1 + (getXp() -30 )/100));
+            case WATER -> enemy.setHp(enemy.getHp() - (damage)*(1 + (getXp() -30)/100)*2);
 
         }
 
