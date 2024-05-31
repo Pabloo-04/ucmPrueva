@@ -11,7 +11,7 @@ public class InventoryState implements GameState{
 
     @Override
     public void handle(GameContext context) {
-        System.out.println("Checking Inventory.");
+        System.out.println("Checking Your bag.");
 
 
 
@@ -28,7 +28,7 @@ public class InventoryState implements GameState{
         int choice = scanner.nextInt();
 
         if (choice == 1) {
-            context.setState(new ExploringState());
+            context.setState(new PauseState());
  }
 }
 

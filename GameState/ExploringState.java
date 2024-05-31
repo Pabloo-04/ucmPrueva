@@ -11,8 +11,8 @@ class ExploringState implements GameState {
         System.out.println("Exploring the map. You can move freely.");
         System.out.println("1. Explore");
         System.out.println("2. Buy stuff");
-        System.out.println("3. Display inventory");
-        System.out.println("4. Battle");
+        System.out.println("3. Battle");
+        System.out.println("4. Pause");
 
         Scanner scanner = new Scanner(System.in);
         int choice = scanner.nextInt();
@@ -26,10 +26,10 @@ class ExploringState implements GameState {
                 context.setState(new BuyingState());
                 break;
             case 3:
-                context.setState(new InventoryState());
+                context.setState(new BattlingState());
                 break;
             case 4:
-                context.setState(new BattlingState());
+                context.setState(new PauseState());
                 break;
             default:
                 System.out.println("Invalid choice, please try again.");
