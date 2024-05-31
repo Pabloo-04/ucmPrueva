@@ -29,7 +29,7 @@ public class GameSaveManager {
         }
     }
 
-    public static void main(String[] args) {
+   /* public static void main(String[] args) {
         Game game = new Game();
        // game.setPlayerName("Ash");
         //game.setPlayerLevel(5);
@@ -46,5 +46,7 @@ public class GameSaveManager {
         saveManager.loadGame(game, "savegame.json");
 
         System.out.println("Player Name: " + game.getPlayerName());
-    }
+    }*/
+
+
 }

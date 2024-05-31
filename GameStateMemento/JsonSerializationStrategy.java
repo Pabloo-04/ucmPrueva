@@ -1,6 +1,6 @@
 package GameStateMemento;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
+/*import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.File;
 import java.io.IOException;
 
@@ -17,4 +17,6 @@ public class JsonSerializationStrategy implements SerializationStrategy {
         return objectMapper.readValue(new File(filename), GameStateMemento.class);
     }
 }
+*/
+
 
