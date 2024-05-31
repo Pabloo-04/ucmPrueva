@@ -19,7 +19,7 @@ public class FactoryClient {
     public FactoryClient() {
     }
     
-    public Pokemon getPokemon(PokemonEnum pokemonEnum, String name,int hp,int xp,int speed,POKEMONTYPE pokemontype,String attackName, int damage){
+    public static Pokemon getPokemon(PokemonEnum pokemonEnum,int hp,int xp,int speed){
         PokemonFactory fabric=null;
 
         switch (pokemonEnum){
@@ -36,7 +36,7 @@ public class FactoryClient {
 
         }
         if(fabric != null){
-            return fabric.createPokemon( name, hp,  xp,  speed, pokemontype, attackName, damage);
+            return fabric.createPokemon(hp,  xp,  speed);
 
         }else {
             System.out.println("There is no factory");

@@ -1,23 +1,26 @@
 package PokemonFactory.Pokemon;
 
+import PokemonFactory.Pokemon.Attack.Attack;
+import PokemonFactory.Pokemon.Attack.FireBlast;
+
+import java.util.ArrayList;
+
 public abstract class Pokemon {
     private String name;
     private int hp;
     private int xp;
     private int speed;
     private POKEMONTYPE pokemontype;
-    private String attackName;
-    private int damage;
 
+    private ArrayList<Attack> attacks;
 
-    public Pokemon(String name, int hp, int xp,int speed, POKEMONTYPE pokemontype,String attackName,int damage) {
+    public Pokemon(String name, int hp, int xp,int speed, POKEMONTYPE pokemontype){
         this.name = name;
         this.hp = hp;
         this.xp = xp;
         this.pokemontype = pokemontype;
         this.speed=speed;
-        this.attackName=attackName;
-        this.damage=damage;
+        this.attacks = new ArrayList<>();
     }
 
     public Pokemon() {
@@ -63,19 +66,9 @@ public abstract class Pokemon {
         this.speed = speed;
     }
 
-    public String getAttackName() {
-        return attackName;
-    }
 
-    public void setAttackName(String attackName) {
-        this.attackName = attackName;
-    }
 
-    public int getDamage() {
-        return damage;
-    }
-
-    public void setDamage(int damage) {
-        this.damage = damage;
+    public boolean isFainted(){
+        return hp == 0;
     }
 }

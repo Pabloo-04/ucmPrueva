@@ -6,7 +6,7 @@ import PokemonFactory.Pokemon.POKEMONTYPE;
 import PokemonFactory.Pokemon.Pokemon;
 
 public class SnorlaxFactory implements PokemonFactory {
-    public Pokemon createPokemon(String nombre, int hp, int xp, int speed, POKEMONTYPE pokeType, String attackName, int damage) {
-        return new Snorlax(nombre, hp, xp, speed, pokeType, attackName, damage);
+    public Pokemon createPokemon(int hp, int xp, int speed) {
+        return new Snorlax("Snorlax", 120, 50, 10, POKEMONTYPE.NORMAL);
     }
 }

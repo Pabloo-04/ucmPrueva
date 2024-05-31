@@ -6,7 +6,7 @@ import PokemonFactory.Pokemon.Pokemon;
 import PokemonFactory.Pokemon.Psychic.OwlUCA;
 
 public class OwlUCAFactory implements PokemonFactory {
-    public Pokemon createPokemon(String nombre, int hp, int xp, int speed, POKEMONTYPE pokeType, String attackName, int damage) {
-        return new OwlUCA(nombre, hp, xp, speed, pokeType, attackName, damage);
+    public Pokemon createPokemon(int hp, int xp, int speed) {
+        return new OwlUCA("OwlUCA", 150, 100, 80, POKEMONTYPE.PSYCHIC);
     }
 }

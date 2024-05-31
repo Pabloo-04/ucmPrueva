@@ -6,7 +6,7 @@ import PokemonFactory.Pokemon.Pokemon;
 import PokemonFactory.Pokemon.Psychic.Mew;
 
 public class MewFactory implements PokemonFactory {
-    public Pokemon createPokemon(String nombre, int hp, int xp, int speed, POKEMONTYPE pokeType, String attackName, int damage) {
-        return new Mew(nombre, hp, xp, speed, pokeType, attackName, damage);
+    public Pokemon createPokemon(int hp, int xp, int speed) {
+        return new Mew("Mew", 100, 100, 100, POKEMONTYPE.PSYCHIC);
     }
 }

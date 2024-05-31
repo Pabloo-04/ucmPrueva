@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 public class Player extends Entity {
     private ArrayList<Buyable> items = new ArrayList<>();
-    private int money;
+    private int money = 100;
 
     public Player() {
 

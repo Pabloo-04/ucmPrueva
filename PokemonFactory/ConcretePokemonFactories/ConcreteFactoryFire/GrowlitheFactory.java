@@ -7,7 +7,7 @@ import PokemonFactory.Pokemon.Pokemon;
 
 public class GrowlitheFactory implements PokemonFactory {
 
-    public Pokemon createPokemon(String nombre, int hp, int xp, int speed, POKEMONTYPE pokeType, String attackName, int damage) {
-        return new Growlithe(nombre, hp, xp, speed, pokeType, attackName, damage);
+    public Pokemon createPokemon( int hp, int xp, int speed) {
+        return new Growlithe("Growlithe", 50, 25, 45, POKEMONTYPE.FIRE);
     }
 }

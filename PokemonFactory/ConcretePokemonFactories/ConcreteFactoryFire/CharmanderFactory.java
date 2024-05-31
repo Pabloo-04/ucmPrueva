@@ -7,7 +7,7 @@ import PokemonFactory.Pokemon.Pokemon;
 
 public class CharmanderFactory implements PokemonFactory {
 
-    public Pokemon createPokemon(String nombre, int hp, int xp, int speed, POKEMONTYPE pokeType, String attackName, int damage) {
-        return new Charmander(nombre, hp, xp, speed, pokeType, attackName, damage);
+    public Pokemon createPokemon(int hp, int xp, int speed) {
+        return new Charmander("Charmander", 30, 30, 60, POKEMONTYPE.FIRE);
     }
 }
