@@ -4,8 +4,8 @@ import java.util.ArrayList;
 
 
 public class Entity {
-    private String name;
-    private ArrayList<Pokemon> pokemons;
+    protected String name;
+    protected ArrayList<Pokemon> pokemons;
     private int Xposition;
     private int YPosition;
 

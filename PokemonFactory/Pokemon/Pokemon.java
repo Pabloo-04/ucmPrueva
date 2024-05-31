@@ -12,9 +12,11 @@ public abstract class Pokemon {
     private int speed;
     private POKEMONTYPE pokemontype;
 
+
+
     private ArrayList<Attack> attacks;
 
-    public Pokemon(String name, int hp, int xp,int speed, POKEMONTYPE pokemontype){
+    public Pokemon(String name, int hp, int xp,int speed, POKEMONTYPE pokemontype,ArrayList<Attack> attacks){
         this.name = name;
         this.hp = hp;
         this.xp = xp;
@@ -66,6 +68,13 @@ public abstract class Pokemon {
         this.speed = speed;
     }
 
+    public ArrayList<Attack> getAttacks() {
+        return attacks;
+    }
+
+    public void setAttacks(ArrayList<Attack> attacks) {
+        this.attacks = attacks;
+    }
 
 
     public boolean isFainted(){

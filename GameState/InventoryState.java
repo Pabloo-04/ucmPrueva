@@ -15,10 +15,10 @@ public class InventoryState implements GameState{
 
 
 
-        if (context.getItems() == null){
+        if (context.player.getItems() == null){
             System.out.println("No Items in Inventory!");
         }else{
-            for (Buyable item : context.getItems()) {
+            for (Buyable item : context.player.getItems()) {
                 System.out.println(item);
             }
         }

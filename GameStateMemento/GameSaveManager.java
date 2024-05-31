@@ -2,7 +2,7 @@ package GameStateMemento;
 
 import java.io.IOException;
 
-public class GameSaveManager {
+ /*public class GameSaveManager {
     private final SerializationStrategy strategy;
 
     public GameSaveManager(SerializationStrategy strategy) {
@@ -46,7 +46,9 @@ public class GameSaveManager {
         saveManager.loadGame(game, "savegame.json");
 
         System.out.println("Player Name: " + game.getPlayerName());
-    }*/
+    }
+    }
+  */
 
 
-}
+

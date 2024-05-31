@@ -1,20 +1,20 @@
-package PokemonFactory.ConcretePokemonFactories.ConcreteFactroyGrass;
+package PokemonFactory.ConcretePokemonFactories.ConcreteFactoryPsychic;
 
 import PokemonFactory.ConcretePokemonFactories.PokemonFactory;
 import PokemonFactory.Pokemon.Attack.Attack;
+import PokemonFactory.Pokemon.Attack.BodySlam;
 import PokemonFactory.Pokemon.Attack.Scratch;
-import PokemonFactory.Pokemon.Attack.VineWhip;
-import PokemonFactory.Pokemon.Grass.Oddish;
 import PokemonFactory.Pokemon.POKEMONTYPE;
 import PokemonFactory.Pokemon.Pokemon;
+import PokemonFactory.Pokemon.Psychic.Mew;
 
 import java.util.ArrayList;
 
-public class OddishFactory implements PokemonFactory {
+public class MewFactory implements PokemonFactory {
     public Pokemon createPokemon(int hp, int xp, int speed) {
         ArrayList<Attack> attacks = new ArrayList<>();
-        attacks.add(new VineWhip());
+        attacks.add(new BodySlam());
         attacks.add(new Scratch());
-        return new Oddish("Oddish",45, 25, 30, POKEMONTYPE.GRASS,attacks);
+        return new Mew("Mew", hp, xp, speed, POKEMONTYPE.PSYCHIC,attacks);
     }
 }

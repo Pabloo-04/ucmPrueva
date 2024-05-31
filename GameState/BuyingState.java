@@ -14,8 +14,8 @@ public class BuyingState implements GameState {
 @Override
 public void handle(GameContext context) {
     System.out.println("Buying stuff. Choose an option from the store.");
-    System.out.println("1. Buy Potion");
-    System.out.println("2. Buy Pokéball");
+    System.out.println("1. Buy Potion || $10");
+    System.out.println("2. Buy Pokéball || $10");
     System.out.println("3. Exit Store");
 
     Scanner scanner = new Scanner(System.in);
@@ -25,13 +25,14 @@ public void handle(GameContext context) {
         case 1:
             Potion p = new Potion();
             System.out.println("You bought a Potion. It has been added to your inventory.");
-            context.addItem(p);
-
+            context.player.getItems().add(p);
+            context.player.setMoney(context.player.getMoney() - 10);
             break;
         case 2:
             Pokeball pb = new Pokeball();
             System.out.println("You bought a Pokéball. It has been added to your inventory.");
-            context.addItem(pb);
+            context.player.getItems().add(pb);
+            context.player.setMoney(context.player.getMoney() - 10);
             break;
         case 3:
             context.setState(new ExploringState());

@@ -1,5 +1,8 @@
 package GameState;
 
+import Entities.Player;
+
+import java.util.ArrayList;
 import java.util.Scanner;
 
 class CreatingGameState implements GameState {
@@ -8,7 +11,9 @@ class CreatingGameState implements GameState {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter player name:");
         String playerName = scanner.nextLine();
-        context.setPlayerName(playerName);
+        Player player = context.getPlayer();
+        player.setName(playerName);
+        context.setPlayer(player);
         System.out.println("Welcome, " + playerName + "! Starting the game...");
         context.setState(new CinematicState());
     }

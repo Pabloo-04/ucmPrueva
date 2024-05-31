@@ -1,23 +1,22 @@
 package GameState;
 
+import Entities.Player;
+import GameStateMemento.Game;
 import Items.Buyable;
+import PokemonFactory.Pokemon.Pokemon;
 
 import java.util.ArrayList;
 
 public class GameContext {
     private GameState state;
-    private String playerName;
-    private ArrayList<Buyable> items;
+
+    protected Player player;
 
     public GameContext() {
         this.state = new InitialMenuState();
-        this.items = new ArrayList<>();
-
+        this.player = new Player();
     }
 
-public void addItem(Buyable item) {
-    this.items.add(item);
-}
 
 public void setState(GameState state) {
     this.state = state;
@@ -26,23 +25,15 @@ public void setState(GameState state) {
     }
 }
 
-public ArrayList<Buyable> getItems() {
-    return items;
-}
+    public Player getPlayer() {
+        return player;
+    }
 
-public void setItems(ArrayList<Buyable> items) {
-    this.items = items;
-}
+    public void setPlayer(Player player) {
+        this.player = player;
+    }
 
-public void setPlayerName(String playerName) {
-    this.playerName = playerName;
-}
-
-public String getPlayerName() {
-    return playerName;
-}
-
-public void start() {
+    public void start() {
     while (state != null) {
         state.handle(this);
     }

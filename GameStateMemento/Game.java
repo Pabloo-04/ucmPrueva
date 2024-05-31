@@ -1,10 +1,22 @@
 package GameStateMemento;
-class Game {//Originator class
-    private String playerName;
-    private int playerLevel;
-    private int playerHealth;
-    // Cambiar esto..
 
+import Entities.Player;
+
+public class Game {//Originator class
+    private Player player;
+
+    public Player getPlayer() {
+        return player;
+    }
+
+    public void setPlayer(Player player) {
+        this.player = player;
+    }
+}
+// Cambiar esto..
+
+
+    /*
     public GameStateMemento saveState() {
         return new GameStateMemento(playerName, playerLevel, playerHealth);
     }
@@ -18,3 +30,4 @@ class Game {//Originator class
 
     // Setters and getters for game state attributes
 }
+*/
