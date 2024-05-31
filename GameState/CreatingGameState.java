@@ -10,6 +10,6 @@ class CreatingGameState implements GameState {
         String playerName = scanner.nextLine();
         context.setPlayerName(playerName);
         System.out.println("Welcome, " + playerName + "! Starting the game...");
-        context.setState(new ExploringState());
+        context.setState(new CinematicState());
     }
 }
