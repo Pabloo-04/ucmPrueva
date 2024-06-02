@@ -16,4 +16,8 @@ public class Squirtle extends Pokemon{
     public Squirtle() {
     }
 
+    @Override
+    public String toString() {
+        return "Squirtle";
+    }
 }

@@ -14,5 +14,8 @@ public class Snorlax extends Pokemon {
     public Snorlax() {
     }
 
-
+    @Override
+    public String toString() {
+        return "Snorlax";
+    }
 }

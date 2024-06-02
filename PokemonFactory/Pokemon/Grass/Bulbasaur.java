@@ -14,5 +14,8 @@ public class Bulbasaur extends Pokemon{
     public Bulbasaur() {
     }
 
-
+    @Override
+    public String toString() {
+        return "Bulbasaur";
+    }
 }

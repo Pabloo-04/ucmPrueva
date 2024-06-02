@@ -14,4 +14,9 @@ public class Growlithe extends Pokemon{
     public Growlithe() {
     }
 
+    @Override
+    public String toString() {
+        return "Growlithe";
+    }
+
 }

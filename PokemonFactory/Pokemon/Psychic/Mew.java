@@ -15,4 +15,9 @@ public class Mew extends Pokemon {
     public Mew() {
     }
 
+    @Override
+    public String toString() {
+        return "Mew";
+    }
+
 }

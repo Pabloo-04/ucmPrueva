@@ -14,7 +14,8 @@ public class Psyduck extends Pokemon{
     public Psyduck() {
     }
 
-
-
-
+    @Override
+    public String toString() {
+        return "Psyduck";
+    }
 }

@@ -14,5 +14,10 @@ public class Jigglypuff extends Pokemon {
     public Jigglypuff() {
     }
 
+    @Override
+    public String toString() {
+        return "Jigglypuff";
     }
+
+}
 

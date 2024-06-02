@@ -14,4 +14,9 @@ public class Charmander extends Pokemon{
     public Charmander() {
     }
 
+    @Override
+    public String toString() {
+        return "Charmander";
+    }
+
 }

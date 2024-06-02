@@ -15,4 +15,9 @@ public class OwlUCA extends Pokemon {
     public OwlUCA() {
     }
 
+    @Override
+    public String toString() {
+        return "OwlUCA";
+    }
+
 }

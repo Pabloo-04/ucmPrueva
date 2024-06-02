@@ -14,4 +14,9 @@ public class Oddish extends Pokemon{
     public Oddish() {
     }
 
+    @Override
+    public String toString() {
+        return "Oddish";
+    }
+
 }

@@ -13,6 +13,7 @@ public class InventoryState implements GameState{
     public void handle(GameContext context) {
         System.out.println("Checking Your bag.");
 
+        System.out.println("------------Items--------------");
         if (context.player.getItems() == null){
             System.out.println("No Items in bag!");
         }else{
@@ -22,6 +23,13 @@ public class InventoryState implements GameState{
             for (Buyable item : context.player.getItems()) {
                 System.out.println(item);
             }*/
+        }
+
+        System.out.println("-----------Pokemons-------------");
+        if (context.player.getPokemons() == null){
+            System.out.println("You have no Pokemons!");
+        }else{
+            System.out.println("Pokemons: " + context.player.getPokemons());
         }
 
         System.out.println("Press 1 to exit bag");
