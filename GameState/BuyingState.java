@@ -26,16 +26,24 @@ public void handle(GameContext context) {
 
     switch (choice) {
         case 1:
-            Potion p = new Potion();
-            System.out.println("You bought a Potion. It has been added to your inventory.");
-            context.player.getItems().add(p);
-            context.player.setMoney(context.player.getMoney() - 10);
+            if (context.player.getMoney() >= 10){
+                Potion p = new Potion();
+                System.out.println("You bought a Potion. It has been added to your inventory.");
+                context.player.getItems().add(p);
+                context.player.setMoney(context.player.getMoney() - 10);
+            }else{
+                System.out.println("You don't have enough money!");
+            }
             break;
         case 2:
-            Pokeball pb = new Pokeball();
-            System.out.println("You bought a Pokéball. It has been added to your inventory.");
-            context.player.getItems().add(pb);
-            context.player.setMoney(context.player.getMoney() - 10);
+            if (context.player.getMoney() >= 10){
+                Pokeball pb = new Pokeball();
+                System.out.println("You bought a Pokéball. It has been added to your inventory.");
+                context.player.getItems().add(pb);
+                context.player.setMoney(context.player.getMoney() - 10);
+            }else{
+                System.out.println("You don't have enough money!");
+            }
             break;
         case 3:
             context.setState(new ExploringState());
