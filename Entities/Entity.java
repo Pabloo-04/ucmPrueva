@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 public class Entity {
     protected String name;
-    protected ArrayList<Pokemon> pokemons;
+    protected ArrayList<Pokemon> pokemons = new ArrayList<>();
     private int Xposition;
     private int YPosition;
 

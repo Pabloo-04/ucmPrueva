@@ -16,5 +16,6 @@ class CreatingGameState implements GameState {
         context.setPlayer(player);
         System.out.println("Welcome, " + playerName + "! Starting the game...");
         context.setState(new CinematicState());
+
     }
 }

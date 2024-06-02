@@ -1,40 +1,45 @@
 package GameState;
 
-/*import PokemonFactory.Pokemon.Attack.Attack;
+import Entities.Player;
+import PokemonFactory.Pokemon.Attack.Attack;
 import PokemonFactory.Pokemon.Pokemon;
 
 import java.util.Scanner;
 import java.util.Random;
-public class WildPokemonBattleState implements GameState{
+
+public class WildPokemonBattleState implements GameState {
     private Pokemon playerPokemon;
     private Pokemon wildPokemon;
 
-    public WildPokemonBattleState(Pokemon playerPokemon) {
-        this.playerPokemon = playerPokemon;
-        this.wildPokemon = WildPokemonSelector.getRandomWildPokemon();
-    }
+
 
     @Override
     public void handle(GameContext context) {
+        playerPokemon = context.player.getPokemons().getFirst();
+        wildPokemon = WildPokemonSelector.getRandomWildPokemon();
+        System.out.println("Player's Pokémon attacks count: " + playerPokemon.getAttacks().size());
         System.out.println("A wild " + wildPokemon.getName() + " appeared!");
+
         while (!playerPokemon.isFainted() && !wildPokemon.isFainted()) {
             playerTurn(context);
             if (wildPokemon.isFainted()) {
                 System.out.println(wildPokemon.getName() + " fainted! You win!");
                 context.setState(new ExploringState()); // Go back to exploring after winning
-                break;
+                return;
             }
 
             opponentTurn(context);
             if (playerPokemon.isFainted()) {
                 System.out.println(playerPokemon.getName() + " fainted! You lose!");
                 context.setState(new ExploringState()); // Go back to exploring after losing
+                return;
             }
         }
     }
 
     private void playerTurn(GameContext context) {
-        System.out.println("Your turn. Choose a move:");
+        playerPokemon = context.player.getPokemons().getFirst();
+        System.out.println("Your turn. Choose a move: ");
         for (int i = 0; i < playerPokemon.getAttacks().size(); i++) {
             System.out.println((i + 1) + ": " + playerPokemon.getAttacks().get(i).getName());
         }
@@ -45,20 +50,23 @@ public class WildPokemonBattleState implements GameState{
             System.out.println("Invalid choice! Try again.");
             return;
         }
-
-       // Attack move = playerPokemon.getAttacks().get(choice);
-        //move.execute(playerPokemon, wildPokemon);
-        playerPokemon.getAttacks().get(choice).use(100,wildPokemon,playerPokemon);
-        context.setState(new CheckBattleState(this));
+        context.player.getPokemons().get(0).getAttacks().get(choice).use(100,playerPokemon,wildPokemon);
+        System.out.println(playerPokemon.getName() + " | " + "HP: " + playerPokemon.getHp());
+        System.out.println(wildPokemon.getName() + " | " + "HP: " + wildPokemon.getHp());
+        if (!wildPokemon.isFainted()) {
+            opponentTurn(context);
+        }
     }
 
     private void opponentTurn(GameContext context) {
         System.out.println("Wild Pokémon's turn.");
         Random random = new Random();
-        Attack move = wildPokemon.getAttacks().get(random.nextInt(wildPokemon.getAttacks().size()));
-        move.execute(wildPokemon, playerPokemon);
+        wildPokemon.getAttacks().get(random.nextInt(wildPokemon.getAttacks().size())).use(100,wildPokemon,playerPokemon);
 
-        context.setState(new CheckBattleState(this));
+
+        if (!playerPokemon.isFainted()) {
+            playerTurn(context);
+        }
     }
 
     public Pokemon getPlayerPokemon() {
@@ -68,6 +76,4 @@ public class WildPokemonBattleState implements GameState{
     public Pokemon getOpponentPokemon() {
         return wildPokemon;
     }
-}*/
-
-
+}

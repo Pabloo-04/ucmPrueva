@@ -11,7 +11,7 @@ class ExploringState implements GameState {
         System.out.println("Exploring the map. You can move freely.");
         System.out.println("1. Explore");
         System.out.println("2. Buy stuff");
-        System.out.println("3. Battle");
+        System.out.println("3. Battle Wild Pokemon");
         System.out.println("4. Pause");
 
         Scanner scanner = new Scanner(System.in);
@@ -26,7 +26,7 @@ class ExploringState implements GameState {
                 context.setState(new BuyingState());
                 break;
             case 3:
-                context.setState(new BattlingState());
+                context.setState(new WildPokemonBattleState());
                 break;
             case 4:
                 context.setState(new PauseState());

@@ -10,11 +10,11 @@ public abstract class Pokemon {
     private int hp;
     private int xp;
     private int speed;
-    private POKEMONTYPE pokemontype;
+    protected POKEMONTYPE pokemontype;
 
 
 
-    private ArrayList<Attack> attacks;
+    protected ArrayList<Attack> attacks = new ArrayList<>();
 
     public Pokemon(String name, int hp, int xp,int speed, POKEMONTYPE pokemontype,ArrayList<Attack> attacks){
         this.name = name;
@@ -22,7 +22,7 @@ public abstract class Pokemon {
         this.xp = xp;
         this.pokemontype = pokemontype;
         this.speed=speed;
-        this.attacks = new ArrayList<>();
+        this.attacks = attacks;
     }
 
     public Pokemon() {

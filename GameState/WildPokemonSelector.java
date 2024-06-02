@@ -11,9 +11,9 @@ public class WildPokemonSelector {
 
     public static Pokemon getRandomWildPokemon() {
         int choice = random.nextInt(4);
-        switch (choice) {
+        switch(choice) {
             case 0:
-                return FactoryClient.getPokemon(PokemonEnum.SNORLAX,120,50,30);
+                return FactoryClient.getPokemon(PokemonEnum.SNORLAX,120,50,20);
             case 1:
                 return FactoryClient.getPokemon(PokemonEnum.JIGGLYPUFF, 84,70,50);
             case 2:

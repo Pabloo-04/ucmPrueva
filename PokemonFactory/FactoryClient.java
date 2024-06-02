@@ -14,32 +14,28 @@ import PokemonFactory.ConcretePokemonFactories.PokemonFactory;
 import PokemonFactory.Pokemon.Pokemon;
 
 public class FactoryClient {
-    public FactoryClient() {
-    }
-    
-    public static Pokemon getPokemon(PokemonEnum pokemonEnum,int hp,int xp,int speed){
-        PokemonFactory fabric=null;
+    public FactoryClient() {}
 
-        switch (pokemonEnum){
-            case CHARMANDER -> fabric=new CharmanderFactory();
-            case GROWLITHE -> fabric=new GrowlitheFactory();
-            case SQUIRTALE -> fabric=new SquirtleFactory();
-            case PSYDUCK -> fabric=new PsyduckFactory();
-            case BULBASAUR -> fabric=new BulbasaurFactory();
-            case ODDISH -> fabric=new OddishFactory();
-            case JIGGLYPUFF ->fabric= new JigglypuffFactory();
-            case SNORLAX -> fabric=new SnorlaxFactory();
-            case OWLUCA ->fabric= new OwlUCAFactory();
-            case MEW ->fabric= new MewFactory();
+    public static Pokemon getPokemon(PokemonEnum pokemonEnum, int hp, int xp, int speed) {
+        PokemonFactory factory = null;
 
+        switch (pokemonEnum) {
+            case CHARMANDER -> factory = new CharmanderFactory();
+            case GROWLITHE -> factory = new GrowlitheFactory();
+            case SQUIRTALE ->  factory = new SquirtleFactory();
+            case PSYDUCK -> factory = new PsyduckFactory();
+            case BULBASAUR -> factory = new BulbasaurFactory();
+            case ODDISH -> factory = new OddishFactory();
+            case JIGGLYPUFF -> factory = new JigglypuffFactory();
+            case SNORLAX -> factory = new SnorlaxFactory();
+            case OWLUCA -> factory = new OwlUCAFactory();
+            case MEW -> factory = new MewFactory();
+            default -> {
+                System.out.println("There is no factory");
+                return null;
+            }
         }
-        if(fabric != null){
-            return fabric.createPokemon(hp,  xp,  speed);
 
-        }else {
-            System.out.println("There is no factory");
-            return null;
-
-        }
+        return factory.createPokemon(hp, xp, speed);
     }
 }
