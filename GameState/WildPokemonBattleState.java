@@ -41,6 +41,7 @@ public class WildPokemonBattleState implements GameState {
         playerPokemon = context.player.getPokemons().getFirst();
         System.out.println("Your turn. Choose a move: ");
         for (int i = 0; i < playerPokemon.getAttacks().size(); i++) {
+            System.out.println("Hello");
             System.out.println((i + 1) + ": " + playerPokemon.getAttacks().get(i).getName());
         }
 

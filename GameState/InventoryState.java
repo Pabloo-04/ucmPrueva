@@ -13,23 +13,24 @@ public class InventoryState implements GameState{
     public void handle(GameContext context) {
         System.out.println("Checking Your bag.");
 
-
-
         if (context.player.getItems() == null){
-            System.out.println("No Items in Inventory!");
+            System.out.println("No Items in bag!");
         }else{
+            System.out.println("Money: " + context.player.getMoney());
+            context.buyable.displayItems(context.player.getItems());
+            /*System.out.println("Items: " + context.player.getItems());
             for (Buyable item : context.player.getItems()) {
                 System.out.println(item);
-            }
+            }*/
         }
 
-        System.out.println("Press 1 to exit inventory");
+        System.out.println("Press 1 to exit bag");
         Scanner scanner = new Scanner(System.in);
         int choice = scanner.nextInt();
 
         if (choice == 1) {
             context.setState(new PauseState());
- }
-}
+        }
+    }
 
 }

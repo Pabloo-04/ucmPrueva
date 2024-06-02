@@ -13,10 +13,13 @@ public class BuyingState implements GameState {
 
 @Override
 public void handle(GameContext context) {
+    System.out.println("-----------------------------------------------");
     System.out.println("Buying stuff. Choose an option from the store.");
+    System.out.println("Money: " + context.player.getMoney());
     System.out.println("1. Buy Potion || $10");
     System.out.println("2. Buy Pokéball || $10");
     System.out.println("3. Exit Store");
+    System.out.println("-----------------------------------------------");
 
     Scanner scanner = new Scanner(System.in);
     int choice = scanner.nextInt();
