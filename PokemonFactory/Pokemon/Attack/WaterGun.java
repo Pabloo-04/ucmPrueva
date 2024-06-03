@@ -14,6 +14,7 @@ public class WaterGun implements Attack {
 
 
         }
+        System.out.println(pokemon.getName() + " has used " + getName() +"!");
     }
 
     @Override

@@ -19,7 +19,7 @@ public abstract class Pokemon {
         this.xp = xp;
         this.pokemontype = pokemontype;
         this.speed=speed;
-        this.attacks = new ArrayList<>();
+        this.attacks = attacks;
     }
 
     public Pokemon() {
@@ -38,7 +38,11 @@ public abstract class Pokemon {
     }
 
     public void setHp(int hp) {
-        this.hp = hp;
+        if (hp < 0) {
+            this.hp= 0;
+        } else {
+            this.hp = hp;
+        }
     }
 
     public int getXp() {
@@ -75,6 +79,6 @@ public abstract class Pokemon {
 
 
     public boolean isFainted(){
-        return hp == 0;
+        return hp <= 0;
     }
 }

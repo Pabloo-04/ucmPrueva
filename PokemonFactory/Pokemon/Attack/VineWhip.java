@@ -12,6 +12,7 @@ public class VineWhip implements Attack{
             case WATER -> enemy.setHp(enemy.getHp() - (damage)*(1 + (pokemon.getXp() -30)/100)*2);
 
         }
+        System.out.println(pokemon.getName() + "has used " + getName() +"!");
     }
 
     @Override

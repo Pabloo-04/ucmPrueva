@@ -8,6 +8,7 @@ public class Scratch implements Attack{
         damage = 5;
 
         enemy.setHp(enemy.getHp() - damage*(1 + (pokemon.getXp() -30)/100));
+        System.out.println(pokemon.getName() + "has used " + getName() +"!");
     }
 
     @Override

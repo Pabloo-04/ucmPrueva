@@ -12,6 +12,7 @@ public class HydroBomb implements Attack {
             case WATER, NORMAL -> enemy.setHp(enemy.getHp() - (damage) * (1 + (pokemon.getXp() - 25) / 100));
             case FIRE -> enemy.setHp(enemy.getHp() - (damage * (1 + (pokemon.getXp() - 25) / 100)) * 2);
         }
+        System.out.println(pokemon.getName() + "has used " + getName() +"!");
     }
 
     @Override
