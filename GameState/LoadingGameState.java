@@ -1,6 +1,6 @@
 package GameState;
 
-class LoadingGameState implements GameState {
+public class LoadingGameState implements GameState {
     @Override
     public void handle(GameContext context) {
         context.saveLoad.load();

@@ -5,7 +5,7 @@ import Items.Buyable;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-class ExploringState implements GameState {
+public class ExploringState implements GameState {
     @Override
     public void handle(GameContext context) {
         System.out.println("Exploring the map. You can move freely.");

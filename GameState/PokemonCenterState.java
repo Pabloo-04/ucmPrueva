@@ -25,6 +25,7 @@ public class PokemonCenterState implements GameState{
                     p.setHp(p.getHpMax());
                 }
                 System.out.println("Your Pokemos have been healed!");
+                context.setState(new PokemonCenterState());
                 break;
             case 2:
                 context.setState(new ExploringState());

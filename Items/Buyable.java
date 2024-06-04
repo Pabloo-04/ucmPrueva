@@ -123,7 +123,7 @@ public abstract class Buyable implements Serializable {
 
     public static void removeItem(String name){
         for(int i = 0 ; i < GameContext.getInstance().getPlayer().getItems().size(); i++){
-            if(GameContext.getInstance().getPlayer().getItems().get(i).name  == name){
+            if(GameContext.getInstance().getPlayer().getItems().get(i).getName()  == name){
                 GameContext.getInstance().getPlayer().getItems().remove(i);
             }
         }

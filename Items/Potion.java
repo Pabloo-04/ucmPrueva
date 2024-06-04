@@ -18,10 +18,10 @@ public class Potion extends Buyable implements Serializable {
 
     @Override
     public void use(Pokemon enemy, Pokemon pokemon) {
-            pokemon.setHp(pokemon.getHp() + 100);
-            Buyable.removeItem("Potion");
+        pokemon.setHp(pokemon.getHp() + 100);
+        if(pokemon.getHp() > pokemon.getHpMax()) pokemon.setHp(pokemon.getHpMax());
         System.out.println(GameContext.getInstance().getPlayer().getName() + " gave " + pokemon.getName() + "a potion");
-
+        Buyable.removeItem("Potion");
     }
 
     @Override

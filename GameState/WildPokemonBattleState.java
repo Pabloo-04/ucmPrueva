@@ -55,7 +55,7 @@ public class WildPokemonBattleState implements GameState {
                     System.out.println("Invalid choice! Try again.");
                     return;
                 }//Check this
-                playerPokemon.getAttacks().get(choice).use(50,wildPokemon,playerPokemon);
+                playerPokemon.getAttacks().get(choice).use(500,wildPokemon,playerPokemon);
                 break;
             case 2:
                 System.out.println("1.Use Pokeball\n2.Use potion");
@@ -64,7 +64,7 @@ public class WildPokemonBattleState implements GameState {
                     if(Buyable.getItem("Pokeball") != null) {
                         try {
                             Buyable.getItem("Pokeball").use(wildPokemon, playerPokemon);
-                            GameContext.getInstance().setState(new ExploringState());
+
                         } catch (Exception e) {
                             System.out.println("Something went wrong");
                         }
@@ -103,7 +103,7 @@ public class WildPokemonBattleState implements GameState {
     private void opponentTurn(GameContext context) {
         System.out.println("Wild Pokémon's turn.");
         Random random = new Random();
-        wildPokemon.getAttacks().get(random.nextInt(wildPokemon.getAttacks().size())).use(100,playerPokemon,wildPokemon);
+        wildPokemon.getAttacks().get(random.nextInt(wildPokemon.getAttacks().size())).use(500,playerPokemon,wildPokemon);
 
 
         if (!playerPokemon.isFainted()) {
