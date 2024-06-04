@@ -1,6 +1,8 @@
 package Items;
 
-public class Pokeball extends Buyable{
+import java.io.Serializable;
+
+public class Pokeball extends Buyable implements Serializable {
 
 
     public Pokeball() {

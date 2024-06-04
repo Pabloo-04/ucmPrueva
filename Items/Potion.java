@@ -1,6 +1,8 @@
 package Items;
 
-public class Potion extends Buyable{
+import java.io.Serializable;
+
+public class Potion extends Buyable implements Serializable {
 
     public Potion() {
     }

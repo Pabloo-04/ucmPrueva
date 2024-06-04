@@ -3,9 +3,10 @@ package PokemonFactory.Pokemon;
 import PokemonFactory.Pokemon.Attack.Attack;
 import PokemonFactory.Pokemon.Attack.FireBlast;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public abstract class Pokemon {
+public abstract class Pokemon implements Serializable {
     private String name;
     private int hp;
     private int xp;
