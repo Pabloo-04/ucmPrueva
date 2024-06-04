@@ -5,6 +5,7 @@ import java.util.Scanner;
 class InitialMenuState implements GameState {
     @Override
     public void handle(GameContext context) {
+        context.player.reset();
         System.out.println("Initial Menu:");
         System.out.println("1. Create New Game");
         System.out.println("2. Load Game");

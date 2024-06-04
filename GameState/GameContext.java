@@ -4,19 +4,29 @@ import Entities.Player;
 import GameStateMemento.Game;
 import Items.Buyable;
 import PokemonFactory.Pokemon.Pokemon;
+import SaveAndLoad.SaveLoad;
 
 import java.util.ArrayList;
 
 public class GameContext {
+    private static GameContext instance;
     private GameState state;
     protected Player player;
     protected Buyable buyable;
+    protected SaveLoad saveLoad;
 
+    public static GameContext getInstance(){
+        if (instance == null){
+            instance = new GameContext();
+        }
+        return instance;
+    }
 
     public GameContext() {
         this.state = new InitialMenuState();
         this.player = new Player();
         this.buyable = new Buyable();
+        this.saveLoad = new SaveLoad();
     }
 
     public void setState(GameState state) {
