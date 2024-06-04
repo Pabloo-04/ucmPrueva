@@ -11,10 +11,10 @@ import PokemonFactory.Pokemon.Water.Squirtle;
 import java.util.ArrayList;
 
 public class SquirtleFactory implements PokemonFactory {
-    public Pokemon createPokemon(int hp, int xp, int speed) {
+    public Pokemon createPokemon(int hp, int hpMax,int xp, int speed) {
         ArrayList<Attack> attacks = new ArrayList<>();
         attacks.add(new WaterGun());
         attacks.add(new HydroBomb());
-        return new Squirtle("Squirtle", 40, 30, 50,POKEMONTYPE.WATER,attacks);
+        return new Squirtle("Squirtle", hp, hpMax, xp,speed,POKEMONTYPE.WATER,attacks);
     }
 }

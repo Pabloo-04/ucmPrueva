@@ -16,7 +16,7 @@ import PokemonFactory.Pokemon.Pokemon;
 public class FactoryClient {
     public FactoryClient() {}
 
-    public static Pokemon getPokemon(PokemonEnum pokemonEnum, int hp, int xp, int speed) {
+    public static Pokemon getPokemon(PokemonEnum pokemonEnum, int hp, int hpMax,int xp, int speed) {
         PokemonFactory factory = null;
 
         switch (pokemonEnum) {
@@ -36,6 +36,6 @@ public class FactoryClient {
             }
         }
 
-        return factory.createPokemon(hp, xp, speed);
+        return factory.createPokemon(hp, hpMax,xp, speed);
     }
 }

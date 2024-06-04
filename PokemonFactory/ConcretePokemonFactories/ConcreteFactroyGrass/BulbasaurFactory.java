@@ -9,10 +9,10 @@ import PokemonFactory.Pokemon.Pokemon;
 import java.util.ArrayList;
 
 public class BulbasaurFactory implements PokemonFactory {
-    public Pokemon createPokemon(int hp, int xp, int speed) {
+    public Pokemon createPokemon(int hp, int hpMax,int xp, int speed) {
         ArrayList<Attack> attacks = new ArrayList<>();
         attacks.add(new VineWhip());
         attacks.add(new Scratch());
-        return new Bulbasaur("Bulbasaur", 45, 30, 45, POKEMONTYPE.GRASS,attacks);
+        return new Bulbasaur("Bulbasaur", hp, hpMax, xp,speed, POKEMONTYPE.GRASS,attacks);
     }
 }

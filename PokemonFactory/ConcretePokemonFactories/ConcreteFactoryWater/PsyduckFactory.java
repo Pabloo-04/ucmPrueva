@@ -12,10 +12,10 @@ import java.util.ArrayList;
 
 public class PsyduckFactory implements PokemonFactory {
     @Override
-    public Pokemon createPokemon(int hp, int xp, int speed) {
+    public Pokemon createPokemon(int hp, int hpMax,int xp, int speed) {
         ArrayList<Attack> attacks = new ArrayList<>();
         attacks.add(new WaterGun());
         attacks.add(new HydroBomb());
-        return new Psyduck("Psyduck", hp, xp, speed, POKEMONTYPE.WATER,attacks);
+        return new Psyduck("Psyduck", hp, hpMax,xp, speed, POKEMONTYPE.WATER,attacks);
     }
 }

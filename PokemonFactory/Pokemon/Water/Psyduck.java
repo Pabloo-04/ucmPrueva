@@ -7,8 +7,8 @@ import PokemonFactory.Pokemon.Pokemon;
 import java.util.ArrayList;
 
 public class Psyduck extends Pokemon{
-    public Psyduck(String name, int hp, int xp, int speed, POKEMONTYPE pokemontype, ArrayList<Attack> attacks) {
-        super(name, hp, xp, speed, pokemontype,attacks);
+    public Psyduck(String name, int hp,int hpMax, int xp, int speed, POKEMONTYPE pokemontype, ArrayList<Attack> attacks) {
+        super(name, hp,hpMax, xp, speed, pokemontype,attacks);
     }
 
     public Psyduck() {

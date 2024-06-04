@@ -14,7 +14,7 @@ public class FireBlast implements Attack{
             case GRASS -> enemy.setHp(enemy.getHp() - (damage)*(1 + (pokemon.getXp() -30 )/100)*2);
 
         }
-        System.out.println(pokemon.getName() + "has used " + getName() +"!");
+        System.out.println(pokemon.getName() + " has used " + getName() +"!");
     }
 
     @Override

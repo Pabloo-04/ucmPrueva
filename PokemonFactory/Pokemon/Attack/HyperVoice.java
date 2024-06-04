@@ -12,7 +12,7 @@ public class HyperVoice implements Attack{
 
 
         }
-        System.out.println(pokemon.getName() + "has used " + getName() +"!");
+        System.out.println(pokemon.getName() + " has used " + getName() +"!");
     }
 
     @Override

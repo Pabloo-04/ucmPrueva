@@ -12,7 +12,7 @@ public class GameContext {
     private static GameContext instance;
     private GameState state;
     protected Player player;
-    protected Buyable buyable;
+
     protected SaveLoad saveLoad;
 
     public static GameContext getInstance(){
@@ -25,7 +25,6 @@ public class GameContext {
     public GameContext() {
         this.state = new InitialMenuState();
         this.player = new Player();
-        this.buyable = new Buyable();
         this.saveLoad = new SaveLoad();
     }
 
@@ -36,9 +35,6 @@ public class GameContext {
         }
     }
 
-    public Buyable getBuyable() {return buyable;}
-
-    public void setBuyable(Buyable buyable) {this.buyable = buyable;}
 
     public Player getPlayer() {
         return player;

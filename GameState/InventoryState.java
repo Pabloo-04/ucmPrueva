@@ -3,6 +3,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 import Items.*;
+import PokemonFactory.Pokemon.Pokemon;
 
 public class InventoryState implements GameState{
 
@@ -18,7 +19,7 @@ public class InventoryState implements GameState{
             System.out.println("No Items in bag!");
         }else{
             System.out.println("Money: " + context.player.getMoney());
-            context.buyable.displayItems(context.player.getItems());
+            Buyable.displayItems(context.player.getItems());
             /*System.out.println("Items: " + context.player.getItems());
             for (Buyable item : context.player.getItems()) {
                 System.out.println(item);
@@ -29,7 +30,9 @@ public class InventoryState implements GameState{
         if (context.player.getPokemons() == null){
             System.out.println("You have no Pokemons!");
         }else{
-            System.out.println("Pokemons: " + context.player.getPokemons());
+            for(Pokemon p: context.getPlayer().getPokemons()){
+                System.out.println(p.getName()+ " | Hp: " + p.getHp());
+            }
         }
 
         System.out.println("Press 1 to exit bag");

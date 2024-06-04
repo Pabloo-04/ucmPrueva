@@ -1,11 +1,13 @@
 package Items;
 
+import Entities.Player;
 import GameState.GameContext;
+import PokemonFactory.Pokemon.Pokemon;
 
 import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Buyable implements Serializable {
+public abstract class Buyable implements Serializable {
     private String name;
     private int price;
     protected static int itemAmount = 0;
@@ -46,7 +48,8 @@ public class Buyable implements Serializable {
         this.price =price;
     }
 
-    public void displayItems(ArrayList<Buyable> items) {
+    public abstract void use(Pokemon enemy, Pokemon pokemon);
+    public static void displayItems(ArrayList<Buyable> items) {
         ArrayList<ItemCount> itemCounts = countItems(items);
 
         for (ItemCount itemCount : itemCounts) {
@@ -116,5 +119,26 @@ public class Buyable implements Serializable {
             }
         }
         return ammount;*/
+    }
+
+    public static void removeItem(String name){
+        for(int i = 0 ; i < GameContext.getInstance().getPlayer().getItems().size(); i++){
+            if(GameContext.getInstance().getPlayer().getItems().get(i).name  == name){
+                GameContext.getInstance().getPlayer().getItems().remove(i);
+            }
+        }
+    }
+
+    public static Buyable getItem(String name) {
+
+        Buyable item = null;
+        for (Buyable i : GameContext.getInstance().getPlayer().getItems()) {
+            if (i.getName() == name){
+                item = i;
+                return i;
+            }
+
+        }
+        return null;
     }
 }

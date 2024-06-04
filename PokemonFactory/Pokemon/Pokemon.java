@@ -9,23 +9,34 @@ import java.util.ArrayList;
 public abstract class Pokemon implements Serializable {
     private String name;
     private int hp;
+
+    private int hpMax;
     private int xp;
     private int speed;
     private POKEMONTYPE pokemontype;
     private ArrayList<Attack> attacks = new ArrayList<>();
 
-    public Pokemon(String name, int hp, int xp,int speed, POKEMONTYPE pokemontype,ArrayList<Attack> attacks){
+    public Pokemon(String name, int hp,int hpMax, int xp,int speed, POKEMONTYPE pokemontype,ArrayList<Attack> attacks){
         this.name = name;
         this.hp = hp;
+        this.hpMax =hpMax;
         this.xp = xp;
         this.pokemontype = pokemontype;
         this.speed=speed;
         this.attacks = attacks;
     }
 
+
+
     public Pokemon() {
     }
+    public int getHpMax() {
+        return hpMax;
+    }
 
+    public void setHpMax(int hpMax) {
+        this.hpMax = hpMax;
+    }
     public String getName() {
         return name;
     }

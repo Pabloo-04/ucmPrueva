@@ -15,7 +15,7 @@ public class Physhic implements Attack{
 
 
         }
-        System.out.println(pokemon.getName() + "has used " + getName() +"!");
+        System.out.println(pokemon.getName() + " has used " + getName() +"!");
     }
 
     @Override
