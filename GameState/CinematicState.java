@@ -3,6 +3,7 @@ package GameState;
 import PokemonFactory.FactoryClient;
 import PokemonFactory.PokemonEnum;
 
+import java.util.Random;
 import java.util.Scanner;
 
 public class CinematicState implements GameState {
@@ -28,17 +29,17 @@ public class CinematicState implements GameState {
             switch (choice) {
                 case 1:
                     System.out.println("You have chosen Charmander!");
-                    GameContext.getInstance().player.getPokemons().add(FactoryClient.getPokemon(PokemonEnum.CHARMANDER, 200, 200,30, 40));
+                    GameContext.getInstance().player.getPokemons().add(FactoryClient.getPokemon(PokemonEnum.CHARMANDER, 200, 1,200,30, 40));
                     validChoice = true;
                     break;
                 case 2:
                     System.out.println("You have chosen Bulbasaur!");
-                    GameContext.getInstance().player.getPokemons().add(FactoryClient.getPokemon(PokemonEnum.BULBASAUR, 200,200, 50, 40));
+                    GameContext.getInstance().player.getPokemons().add(FactoryClient.getPokemon(PokemonEnum.BULBASAUR, 200,1,200, 50, 40));
                     validChoice = true;
                     break;
                 case 3:
                     System.out.println("You have chosen Squirtle!");
-                    GameContext.getInstance().player.getPokemons().add(FactoryClient.getPokemon(PokemonEnum.SQUIRTALE, 200,200, 50, 40));
+                    GameContext.getInstance().player.getPokemons().add(FactoryClient.getPokemon(PokemonEnum.SQUIRTALE, 200,1,200, 50, 40));
                     validChoice = true;
                     break;
                 default:

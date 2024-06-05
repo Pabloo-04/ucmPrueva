@@ -9,10 +9,10 @@ import PokemonFactory.Pokemon.Psychic.OwlUCA;
 import java.util.ArrayList;
 
 public class OwlUCAFactory implements PokemonFactory {
-    public Pokemon createPokemon(int hp, int hpMax,int xp, int speed) {
+    public Pokemon createPokemon(int hp, int level,int hpMax,int xp, int speed) {
         ArrayList<Attack> attacks = new ArrayList<>();
         attacks.add(new BodySlam());
         attacks.add(new Scratch());
-        return new OwlUCA("OwlUCA", hp, hpMax, xp, speed, POKEMONTYPE.PSYCHIC,attacks);
+        return new OwlUCA("OwlUCA", hp, level,hpMax, xp, speed, POKEMONTYPE.PSYCHIC,attacks);
     }
 }

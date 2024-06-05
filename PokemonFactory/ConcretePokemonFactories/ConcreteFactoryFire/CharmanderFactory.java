@@ -13,10 +13,10 @@ import java.util.ArrayList;
 
 public class CharmanderFactory implements PokemonFactory {
 
-    public Pokemon createPokemon(int hp, int hpMax,int xp, int speed) {
+    public Pokemon createPokemon(int hp, int level,int hpMax,int xp, int speed) {
         ArrayList<Attack> attacks = new ArrayList<>();
         attacks.add(new FlameThrower());
         attacks.add(new Scratch());
-        return new Charmander("Charmander", hp,hpMax, xp, speed, POKEMONTYPE.FIRE,attacks);
+        return new Charmander("Charmander", hp, level, hpMax, xp, speed, POKEMONTYPE.FIRE,attacks);
     }
 }

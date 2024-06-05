@@ -13,10 +13,10 @@ import java.util.ArrayList;
 
 public class GrowlitheFactory implements PokemonFactory {
 
-    public Pokemon createPokemon( int hp, int hpMax,int xp, int speed) {
+    public Pokemon createPokemon( int hp, int level,int hpMax,int xp, int speed) {
         ArrayList<Attack> attacks = new ArrayList<>();
         attacks.add(new FireBlast());
         attacks.add(new Scratch());
-        return new Growlithe("Growlithe", hp, hpMax,xp, speed, POKEMONTYPE.FIRE,attacks);
+        return new Growlithe("Growlithe", hp, level,hpMax,xp, speed, POKEMONTYPE.FIRE,attacks);
     }
 }

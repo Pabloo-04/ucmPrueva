@@ -20,10 +20,6 @@ public class InventoryState implements GameState{
         }else{
             System.out.println("Money: " + context.player.getMoney());
             Buyable.displayItems(context.player.getItems());
-            /*System.out.println("Items: " + context.player.getItems());
-            for (Buyable item : context.player.getItems()) {
-                System.out.println(item);
-            }*/
         }
 
         System.out.println("-----------Pokemons-------------");
@@ -31,7 +27,7 @@ public class InventoryState implements GameState{
             System.out.println("You have no Pokemons!");
         }else{
             for(Pokemon p: context.getPlayer().getPokemons()){
-                System.out.println(p.getName()+ " | Hp: " + p.getHp());
+                System.out.println(p.getName()+ " | Hp: " + p.getHp() + " | Speed: " + p.getSpeed() + " | Level: " + p.getLevel());
             }
         }
 

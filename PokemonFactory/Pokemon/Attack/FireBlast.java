@@ -6,8 +6,6 @@ public class FireBlast implements Attack{
 
     @Override
     public void use(int damage, Pokemon enemy,Pokemon pokemon) {
-        damage = 10;
-
         switch (enemy.getPokemontype()){
             case PSYCHIC, WATER -> enemy.setHp(enemy.getHp() - (damage*(1 + (pokemon.getXp() -30 )/100))/2);
             case NORMAL,FIRE -> enemy.setHp(enemy.getHp() - damage*(1 + (pokemon.getXp() -30 )/100));

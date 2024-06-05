@@ -11,10 +11,10 @@ import PokemonFactory.Pokemon.Psychic.Mew;
 import java.util.ArrayList;
 
 public class MewFactory implements PokemonFactory {
-    public Pokemon createPokemon(int hp, int hpMax,int xp, int speed) {
+    public Pokemon createPokemon(int hp, int level,int hpMax,int xp, int speed) {
         ArrayList<Attack> attacks = new ArrayList<>();
         attacks.add(new BodySlam());
         attacks.add(new Scratch());
-        return new Mew("Mew", hp, hpMax,xp, speed, POKEMONTYPE.PSYCHIC,attacks);
+        return new Mew("Mew", hp, level,hpMax,xp, speed, POKEMONTYPE.PSYCHIC,attacks);
     }
 }

@@ -19,6 +19,7 @@ public class WildPokemonBattleState implements GameState {
         playerPokemon = context.player.getPokemons().getFirst();
         wildPokemon = WildPokemonSelector.getRandomWildPokemon();
         System.out.println("A wild " + wildPokemon.getName() + " appeared!");
+        System.out.println("HP: " + wildPokemon.getHp() + " | LVL: " + wildPokemon.getLevel());
 
         while (!playerPokemon.isFainted() && !wildPokemon.isFainted()) {
             playerTurn(context);
@@ -55,7 +56,8 @@ public class WildPokemonBattleState implements GameState {
                     System.out.println("Invalid choice! Try again.");
                     return;
                 }//Check this
-                playerPokemon.getAttacks().get(choice).use(500,wildPokemon,playerPokemon);
+                playerPokemon.getAttacks().get(option).use(10,wildPokemon,playerPokemon);
+
                 break;
             case 2:
                 System.out.println("1.Use Pokeball\n2.Use potion");
@@ -93,8 +95,8 @@ public class WildPokemonBattleState implements GameState {
         }
 
 
-        System.out.println(playerPokemon.getName() + " | " + "HP: " + playerPokemon.getHp());
-        System.out.println(wildPokemon.getName() + " | " + "HP: " + wildPokemon.getHp());
+        System.out.println(playerPokemon.getName() + " | HP: " + playerPokemon.getHp());
+        System.out.println(wildPokemon.getName() + " | HP: " + wildPokemon.getHp());
         if (!wildPokemon.isFainted()) {
             opponentTurn(context);
         }
@@ -103,7 +105,7 @@ public class WildPokemonBattleState implements GameState {
     private void opponentTurn(GameContext context) {
         System.out.println("Wild Pokémon's turn.");
         Random random = new Random();
-        wildPokemon.getAttacks().get(random.nextInt(wildPokemon.getAttacks().size())).use(500,playerPokemon,wildPokemon);
+        wildPokemon.getAttacks().get(random.nextInt(wildPokemon.getAttacks().size())).use(10,playerPokemon,wildPokemon);
 
 
         if (!playerPokemon.isFainted()) {

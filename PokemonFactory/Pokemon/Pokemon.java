@@ -12,13 +12,15 @@ public abstract class Pokemon implements Serializable {
 
     private int hpMax;
     private int xp;
+    private int level;
     private int speed;
     private POKEMONTYPE pokemontype;
     private ArrayList<Attack> attacks = new ArrayList<>();
 
-    public Pokemon(String name, int hp,int hpMax, int xp,int speed, POKEMONTYPE pokemontype,ArrayList<Attack> attacks){
+    public Pokemon(String name, int hp, int level ,int hpMax, int xp,int speed, POKEMONTYPE pokemontype,ArrayList<Attack> attacks){
         this.name = name;
         this.hp = hp;
+        this.level = level;
         this.hpMax =hpMax;
         this.xp = xp;
         this.pokemontype = pokemontype;
@@ -31,7 +33,11 @@ public abstract class Pokemon implements Serializable {
     public Pokemon() {
     }
     public int getHpMax() {
-        return hpMax;
+        if(level == 1){
+            return hpMax;
+        }else{
+            return hpMax +  5*(level-1);
+        }
     }
 
     public void setHpMax(int hpMax) {
@@ -74,7 +80,11 @@ public abstract class Pokemon implements Serializable {
     }
 
     public int getSpeed() {
-        return speed;
+        if(level == 1){
+            return speed;
+        }else{
+            return speed +  5*level;
+        }
     }
 
     public void setSpeed(int speed) {
@@ -89,6 +99,13 @@ public abstract class Pokemon implements Serializable {
         this.attacks = attacks;
     }
 
+    public int getLevel() {
+        return level;
+    }
+
+    public void setLevel(int level) {
+        this.level = level;
+    }
 
     public boolean isFainted(){
         return hp <= 0;
