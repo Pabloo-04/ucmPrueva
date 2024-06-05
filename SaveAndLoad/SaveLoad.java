@@ -40,6 +40,7 @@ public class SaveLoad {
                 String itemName = item.getName();
                 itemCountMap.put(itemName, itemCountMap.getOrDefault(itemName, 0) + 1);
             }
+            ds.playerName = GameContext.getInstance().getPlayer().getName();
             ds.itemCounts.putAll(itemCountMap);
             ds.pokemons.addAll(GameContext.getInstance().getPlayer().getPokemons());
             oos.writeObject(ds);
@@ -56,6 +57,7 @@ public class SaveLoad {
             ObjectInputStream ois = new ObjectInputStream(new FileInputStream(new File("save.dat")));
             DataStorage ds = (DataStorage) ois.readObject();
             ois.close();
+            GameContext.getInstance().getPlayer().setName(ds.playerName);
             GameContext.getInstance().getPlayer().setMoney(ds.money);
             GameContext.getInstance().getPlayer().getItems().clear(); 
 

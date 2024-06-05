@@ -44,7 +44,7 @@ public class WildPokemonBattleState implements GameState {
         System.out.println("-------------");
         System.out.println("1.Attack \n2.Bag \n3.Run");
         Scanner scanner = new Scanner(System.in);
-        int choice = scanner.nextInt();
+        int choice = scanner.nextInt(); scanner.nextLine();
         switch (choice){
             case 1:
                 for (int i = 0; i < playerPokemon.getAttacks().size(); i++) {

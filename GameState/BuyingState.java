@@ -34,6 +34,7 @@ public void handle(GameContext context) {
             }else{
                 System.out.println("You don't have enough money!");
             }
+            GameContext.getInstance().setState(new BuyingState());
             break;
         case 2:
             if (context.player.getMoney() >= 10){
@@ -41,16 +42,17 @@ public void handle(GameContext context) {
                 System.out.println("You bought a Pokéball. It has been added to your inventory.");
                 context.player.getItems().add(pb);
                 context.player.setMoney(context.player.getMoney() - 10);
+                GameContext.getInstance().setState(new BuyingState());
             }else{
                 System.out.println("You don't have enough money!");
             }
             break;
         case 3:
-            context.setState(new ExploringState());
+            GameContext.getInstance().setState(new ExploringState());
             break;
         default:
             System.out.println("Invalid choice, please try again.");
-            context.setState(new BuyingState());
+            GameContext.getInstance().setState(new BuyingState());
             break;
    }
 

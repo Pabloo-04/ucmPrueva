@@ -28,17 +28,17 @@ public class CinematicState implements GameState {
             switch (choice) {
                 case 1:
                     System.out.println("You have chosen Charmander!");
-                    context.player.getPokemons().add(FactoryClient.getPokemon(PokemonEnum.CHARMANDER, 200, 200,30, 40));
+                    GameContext.getInstance().player.getPokemons().add(FactoryClient.getPokemon(PokemonEnum.CHARMANDER, 200, 200,30, 40));
                     validChoice = true;
                     break;
                 case 2:
                     System.out.println("You have chosen Bulbasaur!");
-                    context.player.getPokemons().add(FactoryClient.getPokemon(PokemonEnum.BULBASAUR, 200,200, 50, 40));
+                    GameContext.getInstance().player.getPokemons().add(FactoryClient.getPokemon(PokemonEnum.BULBASAUR, 200,200, 50, 40));
                     validChoice = true;
                     break;
                 case 3:
                     System.out.println("You have chosen Squirtle!");
-                    context.player.getPokemons().add(FactoryClient.getPokemon(PokemonEnum.SQUIRTALE, 200,200, 50, 40));
+                    GameContext.getInstance().player.getPokemons().add(FactoryClient.getPokemon(PokemonEnum.SQUIRTALE, 200,200, 50, 40));
                     validChoice = true;
                     break;
                 default:
@@ -47,7 +47,7 @@ public class CinematicState implements GameState {
             }
         }
 
-        context.setState(new ExploringState());
+        GameContext.getInstance().setState(new ExploringState());
 
     }
 }
