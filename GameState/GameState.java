@@ -1,5 +1,5 @@
 package GameState;
 
 interface GameState {
-    void handle(GameContext context);
+    void handle();
 }

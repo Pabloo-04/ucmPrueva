@@ -2,8 +2,8 @@ package GameState;
 
 public class SavingState implements GameState{
     @Override
-    public void handle(GameContext context) {
-        context.saveLoad.save();
-        context.setState(new PauseState());
+    public void handle() {
+        GameContext.getInstance().saveLoad.save();
+        GameContext.getInstance().setState(new PauseState());
     }
 }

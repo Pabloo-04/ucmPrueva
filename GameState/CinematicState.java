@@ -8,7 +8,7 @@ import java.util.Scanner;
 
 public class CinematicState implements GameState {
     @Override
-    public void handle(GameContext context) {
+    public void handle() {
         String story =
                 "\nNuestra aventura comienza en el primer día de clase, cuando nuestro protagonista, \n" +
                 "emocionado por ingresar a la UCA, se encuentra con un accidente inesperado. \n" +
@@ -29,17 +29,17 @@ public class CinematicState implements GameState {
             switch (choice) {
                 case 1:
                     System.out.println("You have chosen Charmander!");
-                    GameContext.getInstance().player.getPokemons().add(FactoryClient.getPokemon(PokemonEnum.CHARMANDER, 200, 1,200,30, 40));
+                    GameContext.getInstance().player.getPokemons().add(FactoryClient.getPokemon(PokemonEnum.CHARMANDER,25 ,1,25,0, 45));
                     validChoice = true;
                     break;
                 case 2:
                     System.out.println("You have chosen Bulbasaur!");
-                    GameContext.getInstance().player.getPokemons().add(FactoryClient.getPokemon(PokemonEnum.BULBASAUR, 200,1,200, 50, 40));
+                    GameContext.getInstance().player.getPokemons().add(FactoryClient.getPokemon(PokemonEnum.BULBASAUR, 30,1,30, 0, 30));
                     validChoice = true;
                     break;
                 case 3:
                     System.out.println("You have chosen Squirtle!");
-                    GameContext.getInstance().player.getPokemons().add(FactoryClient.getPokemon(PokemonEnum.SQUIRTALE, 200,1,200, 50, 40));
+                    GameContext.getInstance().player.getPokemons().add(FactoryClient.getPokemon(PokemonEnum.SQUIRTALE, 40,1,40, 0, 25));
                     validChoice = true;
                     break;
                 default:

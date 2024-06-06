@@ -31,9 +31,11 @@ public class GameContext {
     public void setState(GameState state) {
         this.state = state;
         if (state != null) {
-            state.handle(this);
+            state.handle();
         }
     }
+
+
 
 
     public Player getPlayer() {
@@ -46,11 +48,8 @@ public class GameContext {
 
     public void start() {
     while (state != null) {
-        state.handle(this);
+        state.handle();
     }
 }
+}
 
-public void request() {
-    this.state.handle(this);
-}
-}

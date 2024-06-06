@@ -25,6 +25,8 @@ public class Pokeball extends Buyable implements Serializable {
                 GameContext.getInstance().getPlayer().getPokemons().add(enemy);
                 Buyable.removeItem("Pokeball");
                 System.out.println("You have catched " + enemy.getName() +" !!");
+                pokemon.gainXp(enemy.getLevel()*2);
+                pokemon.checkLevelUp();
                 GameContext.getInstance().setState(new ExploringState());
             }else{
                 System.out.println(enemy.getName() + " couldn't be catched...");

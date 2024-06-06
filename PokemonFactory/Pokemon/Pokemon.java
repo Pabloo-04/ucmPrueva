@@ -33,11 +33,7 @@ public abstract class Pokemon implements Serializable {
     public Pokemon() {
     }
     public int getHpMax() {
-        if(level == 1){
-            return hpMax;
-        }else{
-            return hpMax +  5*(level-1);
-        }
+      return  hpMax;
     }
 
     public void setHpMax(int hpMax) {
@@ -80,11 +76,7 @@ public abstract class Pokemon implements Serializable {
     }
 
     public int getSpeed() {
-        if(level == 1){
             return speed;
-        }else{
-            return speed +  5*level;
-        }
     }
 
     public void setSpeed(int speed) {
@@ -109,5 +101,31 @@ public abstract class Pokemon implements Serializable {
 
     public boolean isFainted(){
         return hp <= 0;
+    }
+
+    public void gainXp(int xpGained) {
+        this.xp += xpGained;
+        checkLevelUp();
+    }
+
+    public void checkLevelUp() {
+        double requiredXp = Math.ceil(Math.sinh(Math.sqrt(level)));
+        while (xp >= requiredXp) {
+            xp -= requiredXp;
+            levelUp();
+            requiredXp = Math.ceil(Math.sinh(Math.sqrt(level))); // Recalculate required XP for the new level
+        }
+
+    }
+
+    private void levelUp() {
+        level++;
+       // Reset XP after leveling up
+        hpMax = hpMax + (int)( hpMax*0.05); // Increase max HP
+        // = maxHp; // Restore HP to full on level up
+        speed   =  speed + (int)(speed*0.07); // Increase speed
+
+        System.out.println(name + " leveled up to level " + level + "!");
+        System.out.println("New stats: HpMax: " + hpMax + " Speed: " + speed);
     }
 }

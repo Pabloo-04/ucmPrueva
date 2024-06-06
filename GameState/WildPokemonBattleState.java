@@ -1,8 +1,6 @@
 package GameState;
 
-import Entities.Player;
 import Items.Buyable;
-import PokemonFactory.Pokemon.Attack.Attack;
 import PokemonFactory.Pokemon.Pokemon;
 
 import java.util.Scanner;
@@ -15,32 +13,40 @@ public class WildPokemonBattleState implements GameState {
 
 
     @Override
-    public void handle(GameContext context) {
-        playerPokemon = context.player.getPokemons().getFirst();
+    public void handle() {
+        playerPokemon = GameContext.getInstance().player.getPokemons().getFirst();
         wildPokemon = WildPokemonSelector.getRandomWildPokemon();
         System.out.println("A wild " + wildPokemon.getName() + " appeared!");
-        System.out.println("HP: " + wildPokemon.getHp() + " | LVL: " + wildPokemon.getLevel());
-
+        System.out.println("HP: " + wildPokemon.getHp() + " | LVL: " + wildPokemon.getLevel() + " | SPEED " + wildPokemon.getSpeed());
+        boolean firstPlayer = playerPokemon.getSpeed() >= wildPokemon.getSpeed();
         while (!playerPokemon.isFainted() && !wildPokemon.isFainted()) {
-            playerTurn(context);
-            if (wildPokemon.isFainted()) {
-                System.out.println(wildPokemon.getName() + " fainted! You win!");
-                context.setState(new ExploringState()); // Go back to exploring after winning
-                return;
+            if (firstPlayer) {
+                playerTurn();
+                if (wildPokemon.isFainted()) {
+                    System.out.println(wildPokemon.getName() + " fainted! You win!");
+                    GameContext.getInstance().player.setMoney(GameContext.getInstance().player.getMoney() + 10);
+                    playerPokemon.gainXp(wildPokemon.getLevel()*2);
+                    playerPokemon.checkLevelUp();
+                    GameContext.getInstance().setState(new ExploringState()); // Go back to exploring after winning
+                }
+            } else {
+                opponentTurn();
+                if (playerPokemon.isFainted()) {
+                    System.out.println(playerPokemon.getName() + " fainted! You lose!");
+                    GameContext.getInstance().setState(new ExploringState()); // Go back to exploring after losing
+
+                }
             }
 
-            opponentTurn(context);
-            if (playerPokemon.isFainted()) {
-                System.out.println(playerPokemon.getName() + " fainted! You lose!");
-                context.setState(new ExploringState()); // Go back to exploring after losing
-                return;
-            }
+            // Alternate turns
+            firstPlayer = !firstPlayer;
         }
+
     }
 
-    private void playerTurn(GameContext context) {
+    private void playerTurn() {
 
-        playerPokemon = context.player.getPokemons().getFirst();
+        playerPokemon  = GameContext.getInstance().player.getPokemons().getFirst();
         System.out.println("Your turn.  ");
         System.out.println("-------------");
         System.out.println("1.Attack \n2.Bag \n3.Run");
@@ -87,7 +93,7 @@ public class WildPokemonBattleState implements GameState {
                 break;
             case 3:
                 System.out.println("You ran");
-                context.setState(new ExploringState());
+                GameContext.getInstance().setState(new ExploringState());
                 break;
             default:
                 System.out.println("Invalid Option");
@@ -97,20 +103,16 @@ public class WildPokemonBattleState implements GameState {
 
         System.out.println(playerPokemon.getName() + " | HP: " + playerPokemon.getHp());
         System.out.println(wildPokemon.getName() + " | HP: " + wildPokemon.getHp());
-        if (!wildPokemon.isFainted()) {
-            opponentTurn(context);
-        }
     }
 
-    private void opponentTurn(GameContext context) {
+    private void opponentTurn() {
         System.out.println("Wild Pokémon's turn.");
         Random random = new Random();
         wildPokemon.getAttacks().get(random.nextInt(wildPokemon.getAttacks().size())).use(10,playerPokemon,wildPokemon);
+        System.out.println(playerPokemon.getName() + " | HP: " + playerPokemon.getHp());
+        System.out.println(wildPokemon.getName() + " | HP: " + wildPokemon.getHp());
 
 
-        if (!playerPokemon.isFainted()) {
-            playerTurn(context);
-        }
     }
 
     public Pokemon getPlayerPokemon() {

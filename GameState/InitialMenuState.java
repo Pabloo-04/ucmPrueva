@@ -2,10 +2,12 @@ package GameState;
 
 import java.util.Scanner;
 
+import static java.lang.System.exit;
+
 class InitialMenuState implements GameState {
     @Override
-    public void handle(GameContext context) {
-        context.player.reset();
+    public void handle() {
+        GameContext.getInstance().player.reset();
         System.out.println("Initial Menu:");
         System.out.println("1. Create New Game");
         System.out.println("2. Load Game");
@@ -16,18 +18,18 @@ class InitialMenuState implements GameState {
 
         switch (choice) {
             case 1:
-                context.setState(new CreatingGameState());
+                GameContext.getInstance().setState(new CreatingGameState());
                 break;
             case 2:
-                context.setState(new LoadingGameState());
+                GameContext.getInstance().setState(new LoadingGameState());
                 break;
             case 3:
-                GameContext.getInstance().setState(null); // Exit the game
                 System.out.println("Exiting the game.");
+                exit(0); // Exit the game
                 break;
             default:
                 System.out.println("Invalid choice, please try again.");
-                context.setState(new InitialMenuState());
+                GameContext.getInstance().setState(new InitialMenuState());
                 break;
         }
     }

@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 public class ExploringState implements GameState {
     @Override
-    public void handle(GameContext context) {
+    public void handle() {
         System.out.println("Exploring the map. You can move freely.");
         System.out.println("1. Explore");
         System.out.println("2. Buy stuff");
@@ -21,23 +21,23 @@ public class ExploringState implements GameState {
         switch (choice) {
             case 1:
                 System.out.println("You continue exploring.");
-                context.setState(new ExploringState());
+                GameContext.getInstance().setState(new ExploringState());
                 break;
             case 2:
-                context.setState(new BuyingState());
+                GameContext.getInstance().setState(new BuyingState());
                 break;
             case 3:
-                context.setState(new PokemonCenterState());
+                GameContext.getInstance().setState(new PokemonCenterState());
                 break;
             case 4:
-                context.setState(new WildPokemonBattleState());
+                GameContext.getInstance().setState(new WildPokemonBattleState());
                 break;
             case 5:
-                context.setState(new PauseState());
+                GameContext.getInstance().setState(new PauseState());
                 break;
             default:
                 System.out.println("Invalid choice, please try again.");
-                context.setState(new ExploringState());
+                GameContext.getInstance().setState(new ExploringState());
                 break;
  }
 }

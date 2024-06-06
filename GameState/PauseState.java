@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class PauseState implements GameState{
     @Override
-    public void handle(GameContext context) {
+    public void handle() {
         Scanner sc = new Scanner(System.in);
         System.out.println("You've paused the game");
         System.out.println("1. Bag");
@@ -16,19 +16,19 @@ public class PauseState implements GameState{
         int choice = sc.nextInt();
         switch (choice) {
             case 1:
-                context.setState(new InventoryState());
+                GameContext.getInstance().setState(new InventoryState());
                 break;
 
             case 2:
-                context.setState(new ExploringState());
+                GameContext.getInstance().setState(new ExploringState());
                 break;
 
             case 3:
-                context.setState(new SavingState());
+                GameContext.getInstance().setState(new SavingState());
                 break;
 
             case 4:
-                context.setState(new QuittingState());
+                GameContext.getInstance().setState(new QuittingState());
                 break;
         }
     }

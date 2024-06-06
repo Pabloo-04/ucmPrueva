@@ -1,5 +1,4 @@
 package GameState;
-import java.util.ArrayList;
 import java.util.Scanner;
 
 import Items.*;
@@ -11,22 +10,22 @@ public class InventoryState implements GameState{
     }
 
     @Override
-    public void handle(GameContext context) {
+    public void handle() {
         System.out.println("Checking Your bag.");
 
         System.out.println("------------Items--------------");
-        if (context.player.getItems() == null){
+        if (GameContext.getInstance().player.getItems() == null){
             System.out.println("No Items in bag!");
         }else{
-            System.out.println("Money: " + context.player.getMoney());
-            Buyable.displayItems(context.player.getItems());
+            System.out.println("Money: " + GameContext.getInstance().player.getMoney());
+            Buyable.displayItems(GameContext.getInstance().player.getItems());
         }
 
         System.out.println("-----------Pokemons-------------");
-        if (context.player.getPokemons() == null){
+        if (GameContext.getInstance().player.getPokemons() == null){
             System.out.println("You have no Pokemons!");
         }else{
-            for(Pokemon p: context.getPlayer().getPokemons()){
+            for(Pokemon p: GameContext.getInstance().getPlayer().getPokemons()){
                 System.out.println(p.getName()+ " | Hp: " + p.getHp() + " | Speed: " + p.getSpeed() + " | Level: " + p.getLevel());
             }
         }
@@ -36,7 +35,7 @@ public class InventoryState implements GameState{
         int choice = scanner.nextInt();
 
         if (choice == 1) {
-            context.setState(new PauseState());
+            GameContext.getInstance().setState(new PauseState());
         }
     }
 

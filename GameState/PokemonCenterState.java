@@ -1,14 +1,12 @@
 package GameState;
 
-import Items.Pokeball;
-import Items.Potion;
 import PokemonFactory.Pokemon.Pokemon;
 
 import java.util.Scanner;
 
 public class PokemonCenterState implements GameState{
     @Override
-    public void handle(GameContext context) {
+    public void handle() {
         System.out.println("-----------------------------------------------");
         System.out.println("Welcome to the Pokemon Center! ");
         System.out.println("1. Cure Pokemons");
@@ -21,18 +19,18 @@ public class PokemonCenterState implements GameState{
         switch (choice) {
             case 1:
 
-                for(Pokemon p : context.getPlayer().getPokemons()){
+                for(Pokemon p : GameContext.getInstance().getPlayer().getPokemons()){
                     p.setHp(p.getHpMax());
                 }
-                System.out.println("Your Pokemos have been healed!");
-                context.setState(new PokemonCenterState());
+                System.out.println("Your Pokemons have been healed!");
+                GameContext.getInstance().setState(new PokemonCenterState());
                 break;
             case 2:
-                context.setState(new ExploringState());
+                GameContext.getInstance().setState(new ExploringState());
                 break;
             default:
                 System.out.println("Invalid choice, please try again.");
-                context.setState(new PokemonCenterState());
+                GameContext.getInstance().setState(new PokemonCenterState());
                 break;
         }
 
