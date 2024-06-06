@@ -11,7 +11,7 @@ import java.util.ArrayList;
 public class GameContext {
     private static GameContext instance;
     private GameState state;
-
+    private int Gamelevel;
     protected Player player;
 
     protected SaveLoad saveLoad;
@@ -45,6 +45,14 @@ public class GameContext {
 
     public void setPlayer(Player player) {
         this.player = player;
+    }
+
+    public int getGamelevel() {
+        return Gamelevel;
+    }
+
+    public void setGamelevel(int gamelevel) {
+        Gamelevel = gamelevel;
     }
 
     public void start() {

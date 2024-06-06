@@ -45,7 +45,6 @@ public class ChoosingPokemonState implements GameState{
         System.out.println("NPC: Remember, Pokemons that are faster than yours attack first, so be careful! ");
         System.out.println("Press Enter to continue...");
         sc.nextLine();
-        sc.nextLine();
         System.out.println("NPC: Oh, and one more thing! I've heard people say there is an extremely rare pokemon roaming around... beware if you find it, it must be very powerful!");
         System.out.println("Press Enter to continue...");
         sc.nextLine();
