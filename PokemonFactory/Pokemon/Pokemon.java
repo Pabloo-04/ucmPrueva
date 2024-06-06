@@ -121,11 +121,11 @@ public abstract class Pokemon implements Serializable {
     private void levelUp() {
         level++;
        // Reset XP after leveling up
-        hpMax = hpMax + (int)( hpMax*0.05); // Increase max HP
+        hpMax = hpMax + (int)( hpMax*0.1); // Increase max HP
         // = maxHp; // Restore HP to full on level up
-        speed   =  speed + (int)(speed*0.07); // Increase speed
+        speed   =  speed + (int)(speed*0.05); // Increase speed
 
         System.out.println(name + " leveled up to level " + level + "!");
-        System.out.println("New stats: HpMax: " + hpMax + " Speed: " + speed);
+        System.out.println("New stats | HpMax: " + hpMax + " | Speed: " + speed);
     }
 }

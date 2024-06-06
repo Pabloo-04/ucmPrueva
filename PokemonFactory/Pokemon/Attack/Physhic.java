@@ -7,7 +7,7 @@ public class Physhic implements Attack{
 
     @Override
     public void use(Pokemon enemy, Pokemon pokemon) {
-        int damage = 10 + (pokemon.getLevel() - 1) * (int) (10* 0.8);
+        int damage = 10 + (pokemon.getLevel() - 1) * (int) (10* 0.08);
         switch (enemy.getPokemontype()){
             case PSYCHIC -> enemy.setHp(enemy.getHp() - (damage*(1 + (pokemon.getXp() -100 )/100))/2);
             case WATER,FIRE,GRASS -> enemy.setHp(enemy.getHp() - (damage)*(1 + (pokemon.getXp() -100 )/100));

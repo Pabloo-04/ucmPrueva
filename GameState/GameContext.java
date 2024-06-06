@@ -1,20 +1,16 @@
 package GameState;
 
 import Entities.Player;
-import GameStateMemento.Game;
-import Items.Buyable;
-import PokemonFactory.Pokemon.Pokemon;
-import SaveAndLoad.SaveLoad;
-
-import java.util.ArrayList;
+import SaveAndLoad.Load;
+import SaveAndLoad.Save;
 
 public class GameContext {
     private static GameContext instance;
     private GameState state;
     private int Gamelevel;
     protected Player player;
-
-    protected SaveLoad saveLoad;
+    protected Save save;
+    protected Load load;
 
     public static GameContext getInstance(){
         if (instance == null){
@@ -26,7 +22,8 @@ public class GameContext {
     public GameContext() {
         this.state = new InitialMenuState();
         this.player = new Player();
-        this.saveLoad = new SaveLoad();
+        this.save = new Save();
+        this.load = new Load();
     }
 
     public void setState(GameState state) {

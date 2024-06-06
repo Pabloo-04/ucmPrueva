@@ -15,9 +15,16 @@ public class WildPokemonBattleState implements GameState {
     @Override
     public void handle() {
         playerPokemon = GameContext.getInstance().player.getPokemons().getFirst();
+
+        if (playerPokemon.getHp() == 0) {
+            System.out.println(playerPokemon.getName() + " has fainted and cannot battle!");
+            GameContext.getInstance().setState(new ExploringState());
+            return;
+        }
+
         wildPokemon = WildPokemonSelector.getRandomWildPokemon();
         System.out.println("A wild " + wildPokemon.getName() + " appeared!");
-        System.out.println("HP: " + wildPokemon.getHp() + " | LVL: " + wildPokemon.getLevel() + " | SPEED " + wildPokemon.getSpeed());
+        System.out.println("HP: " + wildPokemon.getHp() + " | LVL: " + wildPokemon.getLevel() + " | SPEED: " + wildPokemon.getSpeed());
         boolean firstPlayer = playerPokemon.getSpeed() >= wildPokemon.getSpeed();
         while (!playerPokemon.isFainted() && !wildPokemon.isFainted()) {
             if (firstPlayer) {

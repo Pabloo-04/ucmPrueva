@@ -21,7 +21,7 @@ class InitialMenuState implements GameState {
                 GameContext.getInstance().setState(new CreatingGameState());
                 break;
             case 2:
-                GameContext.getInstance().setState(new LoadingGameState());
+                GameContext.getInstance().setState(new LoadingState());
                 break;
             case 3:
                 System.out.println("Exiting the game.");

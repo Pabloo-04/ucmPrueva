@@ -11,8 +11,8 @@ public class WildPokemonSelector {
 
     public static Pokemon getRandomWildPokemon() {
         int choice = random.nextInt(100); // Adjusted for 1% chance for Mew
-        int level = random.nextInt(5) + 1; // Level between 1 and 5
-        int levelMew = random.nextInt(15) + 1; // Level between 1 and 15
+        int level = random.nextInt(15) + 1; // Level between 1 and 5
+        int levelMew = random.nextInt(15) + 10; // Level between 1 and 15
 
         if (choice < 1) {
             // 1% chance for Mew
