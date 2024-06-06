@@ -21,35 +21,7 @@ public class CinematicState implements GameState {
         Scanner sc = new Scanner(System.in);
         System.out.println("Press Enter to continue...");
         sc.nextLine();
-        System.out.println("An NPC has has given you 100 coins (lucky you!) and offered you a Pokemon, choose one..");
-        boolean validChoice = false;
-        while(!validChoice) {
-            System.out.println("1.Charmander\n2.Bulbasaur\n3.Squirtle");
-            int choice =sc.nextInt();
-            switch (choice) {
-                case 1:
-                    System.out.println("You have chosen Charmander!");
-                    GameContext.getInstance().player.getPokemons().add(FactoryClient.getPokemon(PokemonEnum.CHARMANDER,25 ,1,25,0, 45));
-                    validChoice = true;
-                    break;
-                case 2:
-                    System.out.println("You have chosen Bulbasaur!");
-                    GameContext.getInstance().player.getPokemons().add(FactoryClient.getPokemon(PokemonEnum.BULBASAUR, 30,1,30, 0, 30));
-                    validChoice = true;
-                    break;
-                case 3:
-                    System.out.println("You have chosen Squirtle!");
-                    GameContext.getInstance().player.getPokemons().add(FactoryClient.getPokemon(PokemonEnum.SQUIRTALE, 40,1,40, 0, 25));
-                    validChoice = true;
-                    break;
-                default:
-                    System.out.println("Invalid option! Please choose a valid Pokemon!");
-                    break;
-            }
-        }
-
-        GameContext.getInstance().setState(new ExploringState());
-
+        GameContext.getInstance().setState(new ChoosingPokemonState());
     }
 }
 

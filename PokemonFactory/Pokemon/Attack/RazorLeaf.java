@@ -4,7 +4,8 @@ import PokemonFactory.Pokemon.Pokemon;
 
 public class RazorLeaf implements Attack{
     @Override
-    public void use(int damage, Pokemon enemy, Pokemon pokemon) {
+    public void use(Pokemon enemy, Pokemon pokemon) {
+        int damage = 10;
         switch (enemy.getPokemontype()){
             case PSYCHIC, FIRE -> enemy.setHp(enemy.getHp() - (damage*(1 + (pokemon.getXp() -25 )/100))/2);
             case NORMAL,GRASS -> enemy.setHp(enemy.getHp() - (damage)*(1 + (pokemon.getXp() -25 )/100));

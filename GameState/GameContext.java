@@ -11,6 +11,7 @@ import java.util.ArrayList;
 public class GameContext {
     private static GameContext instance;
     private GameState state;
+
     protected Player player;
 
     protected SaveLoad saveLoad;

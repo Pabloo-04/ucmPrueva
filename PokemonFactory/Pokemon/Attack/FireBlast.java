@@ -5,7 +5,8 @@ import PokemonFactory.Pokemon.Pokemon;
 public class FireBlast implements Attack{
 
     @Override
-    public void use(int damage, Pokemon enemy,Pokemon pokemon) {
+    public void use(Pokemon enemy,Pokemon pokemon) {
+        int damage = 15;
         switch (enemy.getPokemontype()){
             case PSYCHIC, WATER -> enemy.setHp(enemy.getHp() - (damage*(1 + (pokemon.getXp() -30 )/100))/2);
             case NORMAL,FIRE -> enemy.setHp(enemy.getHp() - damage*(1 + (pokemon.getXp() -30 )/100));

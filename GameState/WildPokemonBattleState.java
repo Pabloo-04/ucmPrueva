@@ -62,7 +62,7 @@ public class WildPokemonBattleState implements GameState {
                     System.out.println("Invalid choice! Try again.");
                     return;
                 }//Check this
-                playerPokemon.getAttacks().get(option).use(10,wildPokemon,playerPokemon);
+                playerPokemon.getAttacks().get(option).use(wildPokemon,playerPokemon);
 
                 break;
             case 2:
@@ -108,7 +108,7 @@ public class WildPokemonBattleState implements GameState {
     private void opponentTurn() {
         System.out.println("Wild Pokémon's turn.");
         Random random = new Random();
-        wildPokemon.getAttacks().get(random.nextInt(wildPokemon.getAttacks().size())).use(10,playerPokemon,wildPokemon);
+        wildPokemon.getAttacks().get(random.nextInt(wildPokemon.getAttacks().size())).use(playerPokemon,wildPokemon);
         System.out.println(playerPokemon.getName() + " | HP: " + playerPokemon.getHp());
         System.out.println(wildPokemon.getName() + " | HP: " + wildPokemon.getHp());
 

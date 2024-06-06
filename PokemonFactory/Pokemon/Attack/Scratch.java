@@ -4,7 +4,8 @@ import PokemonFactory.Pokemon.Pokemon;
 
 public class Scratch implements Attack{
     @Override
-    public void use(int damage, Pokemon enemy, Pokemon pokemon) {
+    public void use(Pokemon enemy, Pokemon pokemon) {
+        int damage = 6;
         enemy.setHp(enemy.getHp() - damage*(1 + (pokemon.getXp() -30)/100));
         System.out.println(pokemon.getName() + " has used " + getName() +"!");
     }
