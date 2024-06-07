@@ -2,7 +2,7 @@ package PokemonFactory.Pokemon.Attack;
 
 import PokemonFactory.Pokemon.Pokemon;
 
-public class FlameThrower implements TypedAttack {
+public class PsyShock implements TypedAttack {
 
     @Override
     public int getBaseDamage() {
@@ -12,24 +12,22 @@ public class FlameThrower implements TypedAttack {
     @Override
     public double getTypeMultiplier(Pokemon enemy) {
         switch (enemy.getPokemontype()) {
-            case PSYCHIC, WATER:
-                return 0.5;
-            case NORMAL, FIRE:
-                return 1.0;
-            case GRASS:
-                return 2.0;
+            case PSYCHIC:
+                return 1.0; // Neutral
+            case NORMAL, FIRE, GRASS:
+                return 2.0; // Super effective
             default:
-                return 1.0;
+                return 1.0; // Neutral for all other types
         }
     }
 
     @Override
     public double getMissChance() {
-        return 0.20;
+        return 0.15;
     }
 
     @Override
     public String getName() {
-        return "FlameThrower";
+        return "PsyShock";
     }
 }

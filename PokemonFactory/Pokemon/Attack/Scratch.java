@@ -2,12 +2,22 @@ package PokemonFactory.Pokemon.Attack;
 
 import PokemonFactory.Pokemon.Pokemon;
 
-public class Scratch implements Attack{
+public class Scratch implements TypedAttack {
+
     @Override
-    public void use(Pokemon enemy, Pokemon pokemon) {
-        int damage = 6 + (pokemon.getLevel() - 1) * (int) (6* 0.08);
-        enemy.setHp(enemy.getHp() - damage*(1 + (pokemon.getXp() -30)/100));
-        System.out.println(pokemon.getName() + " has used " + getName() +"!");
+    public int getBaseDamage() {
+        return 6;
+    }
+
+    @Override
+    public double getTypeMultiplier(Pokemon enemy) {
+        // Scratch is a normal type attack, so it is neutral against all types
+        return 1.0;
+    }
+
+    @Override
+    public double getMissChance() {
+        return 0.15;
     }
 
     @Override

@@ -2,17 +2,30 @@ package PokemonFactory.Pokemon.Attack;
 
 import PokemonFactory.Pokemon.Pokemon;
 
-public class HyperVoice implements Attack{
+public class HyperVoice implements TypedAttack {
+
     @Override
-    public void use(Pokemon enemy, Pokemon pokemon) {
-        int damage = 12 + (pokemon.getLevel() - 1) * (int) (12* 0.08);
-        switch (enemy.getPokemontype()){
-            case PSYCHIC -> enemy.setHp(enemy.getHp() - (damage*(1 + (pokemon.getXp() -25 )/100))/2);
-            case WATER,FIRE,NORMAL,GRASS -> enemy.setHp(enemy.getHp() - (damage)*(1 + (pokemon.getXp() -25 )/100));
+    public int getBaseDamage() {
+        return 11;
+    }
 
-
+    @Override
+    public double getTypeMultiplier(Pokemon enemy) {
+        switch (enemy.getPokemontype()) {
+            case PSYCHIC:
+                return 0.5;
+            case WATER, FIRE, GRASS:
+                return 1.0;
+            case NORMAL:
+                return 2.0;
+            default:
+                return 1.0;
         }
-        System.out.println(pokemon.getName() + " has used " + getName() +"!");
+    }
+
+    @Override
+    public double getMissChance() {
+        return 0.20;
     }
 
     @Override

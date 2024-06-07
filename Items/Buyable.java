@@ -55,29 +55,6 @@ public abstract class Buyable implements Serializable {
         for (ItemCount itemCount : itemCounts) {
             System.out.println(itemCount.name + " x" + itemCount.count);
         }
-
-        /*ArrayList<ItemCount> itemCounts = new ArrayList<>();
-
-        for (Buyable item : items) {
-            String itemName = item.getName();
-            boolean found = false;
-
-            for (ItemCount itemCount : itemCounts) {
-                if (itemCount.name.equals(itemName)) {
-                    itemCount.count++;
-                    found = true;
-                    break;
-                }
-            }
-
-            if (!found) {
-                itemCounts.add(new ItemCount(itemName));
-            }
-        }
-
-        for (ItemCount itemCount : itemCounts) {
-            System.out.println(itemCount.name + " x" + itemCount.count);
-        }*/
     }
 
     private static ArrayList<ItemCount> countItems(ArrayList<Buyable> items) {
@@ -101,24 +78,6 @@ public abstract class Buyable implements Serializable {
         }
 
         return itemCounts;
-    }
-
-    public static int itemAmmount(String itemName) {
-        itemAmount = 0;  // Reset the item amount before calculation
-        for (Buyable item : GameContext.getInstance().getPlayer().getItems()) {
-            if (item.getName().equals(itemName)) {
-                itemAmount++;
-            }
-        }
-        return itemAmount;
-
-        /*int ammount = 0;
-        for(Buyable item : GameContext.getInstance().getPlayer().getItems()) {
-            if(item.getName().equals(GameContext.getInstance().getPlayer().getItems())) {
-                ammount++;
-            }
-        }
-        return ammount;*/
     }
 
     public static void removeItem(String name){

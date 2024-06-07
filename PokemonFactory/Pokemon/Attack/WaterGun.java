@@ -2,21 +2,34 @@ package PokemonFactory.Pokemon.Attack;
 
 import PokemonFactory.Pokemon.Pokemon;
 
-public class WaterGun implements Attack {
+public class WaterGun implements TypedAttack {
 
     @Override
-    public void use(Pokemon enemy, Pokemon pokemon) {
-        int damage = 12 + (pokemon.getLevel() - 1) * (int) (12* 0.08);;
-        switch (enemy.getPokemontype()){
-            case PSYCHIC,GRASS -> enemy.setHp(enemy.getHp() - (damage*(1 + (pokemon.getXp() -30 )/100))/2);
-            case WATER,NORMAL -> enemy.setHp(enemy.getHp() - (damage)*(1 + (pokemon.getXp() -30 )/100));
-            case FIRE -> enemy.setHp(enemy.getHp() - (damage*(1 + (pokemon.getXp() -30 )/100))*2);
+    public int getBaseDamage() {
+        return 12;
+    }
+
+    @Override
+    public double getTypeMultiplier(Pokemon enemy) {
+        switch (enemy.getPokemontype()) {
+            case PSYCHIC, GRASS:
+                return 0.5;
+            case NORMAL, WATER:
+                return 1.0;
+            case FIRE:
+                return 2.0;
+            default:
+                return 1.0;
         }
-        System.out.println(pokemon.getName() + " has used " + getName() +"!");
+    }
+
+    @Override
+    public double getMissChance() {
+        return 0.20;
     }
 
     @Override
     public String getName() {
-        return "Water gun";
+        return "Water Gun";
     }
 }

@@ -15,7 +15,13 @@ public class ChoosingPokemonState implements GameState{
         System.out.println("NPC: You want to go in? Here, I'll give you a couple of things that can help! (the NPC has has given you 100 coins, lucky you!).");
         System.out.println("Press Enter to continue...");
         sc.nextLine();
-        System.out.println("NPC: Here, to help you in your journey, choose one of these pokemons. I hope they help in your adventure!");
+        System.out.println("NPC: That's all the money I've got left... when the pokemons went crazy, they stole all my money! Whenever you defeat one, they'll surely drop some coin they stole from me!.");
+        System.out.println("Press Enter to continue...");
+        sc.nextLine();
+        System.out.println("NPC: Whenever you defeat one, they'll surely drop some coin they stole from me! Those darn pokemons....");
+        System.out.println("Press Enter to continue...");
+        sc.nextLine();
+        System.out.println("NPC: Anyway, here, to help you in your journey, choose one of these pokemons. I hope they help in your adventure!");
 
         boolean validChoice = false;
         while(!validChoice) {

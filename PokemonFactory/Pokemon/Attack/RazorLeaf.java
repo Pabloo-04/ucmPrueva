@@ -2,17 +2,30 @@ package PokemonFactory.Pokemon.Attack;
 
 import PokemonFactory.Pokemon.Pokemon;
 
-public class RazorLeaf implements Attack{
-    @Override
-    public void use(Pokemon enemy, Pokemon pokemon) {
-        int damage = 10 + (pokemon.getLevel() - 1) * (int) (10* 0.08);
-        switch (enemy.getPokemontype()){
-            case PSYCHIC, FIRE -> enemy.setHp(enemy.getHp() - (damage*(1 + (pokemon.getXp() -25 )/100))/2);
-            case NORMAL,GRASS -> enemy.setHp(enemy.getHp() - (damage)*(1 + (pokemon.getXp() -25 )/100));
-            case WATER -> enemy.setHp(enemy.getHp() - (damage)*(1 + (pokemon.getXp() -25)/100)*2);
+public class RazorLeaf implements TypedAttack {
 
+    @Override
+    public int getBaseDamage() {
+        return 12;
+    }
+
+    @Override
+    public double getTypeMultiplier(Pokemon enemy) {
+        switch (enemy.getPokemontype()) {
+            case PSYCHIC, FIRE:
+                return 0.5; // Not very effective
+            case NORMAL, GRASS:
+                return 1.0; // Neutral
+            case WATER:
+                return 2.0; // Super effective
+            default:
+                return 1.0; // Neutral for all other types
         }
-        System.out.println(pokemon.getName() + " has used " + getName() +"!");
+    }
+
+    @Override
+    public double getMissChance() {
+        return 0.20;
     }
 
     @Override

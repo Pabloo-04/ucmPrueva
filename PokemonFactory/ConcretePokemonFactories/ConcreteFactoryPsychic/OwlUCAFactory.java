@@ -11,7 +11,8 @@ import java.util.ArrayList;
 public class OwlUCAFactory implements PokemonFactory {
     public Pokemon createPokemon(int hp, int level,int hpMax,int xp, int speed) {
         ArrayList<Attack> attacks = new ArrayList<>();
-        attacks.add(new BodySlam());
+        attacks.add(new QuantumCalculus());
+        attacks.add(new PsyShock());
         attacks.add(new Scratch());
         return new OwlUCA("OwlUCA", hp, level,hpMax, xp, speed, POKEMONTYPE.PSYCHIC,attacks);
     }

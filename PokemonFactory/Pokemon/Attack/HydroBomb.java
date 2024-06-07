@@ -2,17 +2,30 @@ package PokemonFactory.Pokemon.Attack;
 
 import PokemonFactory.Pokemon.Pokemon;
 
-public class HydroBomb implements Attack {
+public class HydroBomb implements TypedAttack {
 
     @Override
-    public void use(Pokemon enemy, Pokemon pokemon) {
-        int damage = 15 + (pokemon.getLevel() - 1) * (int) (15* 0.08);
+    public int getBaseDamage() {
+        return 14;
+    }
+
+    @Override
+    public double getTypeMultiplier(Pokemon enemy) {
         switch (enemy.getPokemontype()) {
-            case PSYCHIC, GRASS -> enemy.setHp(enemy.getHp() - (damage * (1 + (pokemon.getXp() - 25) / 100)) / 2);
-            case WATER, NORMAL -> enemy.setHp(enemy.getHp() - (damage) * (1 + (pokemon.getXp() - 25) / 100));
-            case FIRE -> enemy.setHp(enemy.getHp() - (damage * (1 + (pokemon.getXp() - 25) / 100)) * 2);
+            case PSYCHIC, GRASS:
+                return 0.5;
+            case WATER, NORMAL:
+                return 1.0;
+            case FIRE:
+                return 2.0;
+            default:
+                return 1.0;
         }
-        System.out.println(pokemon.getName() + " has used " + getName() +"!");
+    }
+
+    @Override
+    public double getMissChance() {
+        return 0.35;
     }
 
     @Override
