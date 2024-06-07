@@ -11,7 +11,7 @@ public class Scratch implements TypedAttack {
 
     @Override
     public double getTypeMultiplier(Pokemon enemy) {
-        // Scratch is a normal type attack, so it is neutral against all types
+
         return 1.0;
     }
 

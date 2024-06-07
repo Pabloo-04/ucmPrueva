@@ -13,13 +13,13 @@ public class QuantumCalculus implements TypedAttack {
     public double getTypeMultiplier(Pokemon enemy) {
         switch (enemy.getPokemontype()) {
             case PSYCHIC:
-                return 0.5; // Not very effective
+                return 0.5;
             case WATER, FIRE, GRASS:
-                return 1.0; // Neutral
+                return 1.0;
             case NORMAL:
-                return 2.0; // Super effective
+                return 2.0;
             default:
-                return 1.0; // Neutral for all other types
+                return 1.0;
         }
     }
 

@@ -17,7 +17,6 @@ public class Pokeball extends Buyable implements Serializable {
 
     @Override
     public void use(Pokemon enemy, Pokemon pokemon) {
-        // Calculate catch success rate based on enemy's remaining HP
         double catchSuccessRate;
         double remainingHpPercent = (double) enemy.getHp() / enemy.getHpMax();
 
@@ -34,7 +33,7 @@ public class Pokeball extends Buyable implements Serializable {
         }
 
         double randomValue = Math.random();
-        
+
         if (randomValue < catchSuccessRate) {
             GameContext.getInstance().getPlayer().getPokemons().add(enemy);
             Buyable.removeItem("Pokeball");

@@ -13,11 +13,11 @@ public class PsyShock implements TypedAttack {
     public double getTypeMultiplier(Pokemon enemy) {
         switch (enemy.getPokemontype()) {
             case PSYCHIC:
-                return 1.0; // Neutral
+                return 1.0;
             case NORMAL, FIRE, GRASS:
-                return 2.0; // Super effective
+                return 2.0;
             default:
-                return 1.0; // Neutral for all other types
+                return 1.0;
         }
     }
 
