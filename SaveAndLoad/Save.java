@@ -20,8 +20,8 @@ public class Save {
             ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(new File("save.dat")));
             DataStorage ds = new DataStorage();
             ds.money = GameContext.getInstance().getPlayer().getMoney();
-
-
+            ds.GameLevel = GameContext.getInstance().getGamelevel();
+            ds.initiChoice = GameContext.getInstance().getInitialChoice();
             Map<String, Integer> itemCountMap = new HashMap<>();
             for (Buyable item : GameContext.getInstance().getPlayer().getItems()) {
                 String itemName = item.getName();

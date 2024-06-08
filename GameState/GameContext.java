@@ -4,11 +4,18 @@ import Entities.Player;
 import SaveAndLoad.Load;
 import SaveAndLoad.Save;
 
+
+
 public class GameContext {
     private static GameContext instance;
     private GameState state;
-    private int Gamelevel;
+    protected int Gamelevel;
+
+    private int initialChoice;
+
     protected Player player;
+
+
     protected Save save;
     protected Load load;
 
@@ -45,17 +52,36 @@ public class GameContext {
     }
 
     public int getGamelevel() {
-        return Gamelevel;
+        return  Gamelevel;
     }
 
     public void setGamelevel(int gamelevel) {
         Gamelevel = gamelevel;
     }
 
-    public void start() {
-    while (state != null) {
-        state.handle();
+   public void checkLevel(){
+        if(Gamelevel< 2 ){
+            if(player.getPokemons().size() != 1){
+                Gamelevel = 2;
+            }
+        }
+
+   }
+
+    public int getInitialChoice() {
+        return initialChoice;
     }
+
+    public void setInitialChoice(int initialChoice) {
+        this.initialChoice = initialChoice;
+    }
+
+    public void start() {
+        while (state != null) {
+            state.handle();
+        }
+    }
+
 }
-}
+
 

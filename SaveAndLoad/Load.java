@@ -32,6 +32,8 @@ public class Load {
             ObjectInputStream ois = new ObjectInputStream(new FileInputStream(new File("save.dat")));
             DataStorage ds = (DataStorage) ois.readObject();
             ois.close();
+            GameContext.getInstance().setGamelevel(ds.GameLevel);
+            GameContext.getInstance().setInitialChoice(ds.initiChoice);
             GameContext.getInstance().getPlayer().setName(ds.playerName);
             GameContext.getInstance().getPlayer().setMoney(ds.money);
             GameContext.getInstance().getPlayer().getItems().clear();
