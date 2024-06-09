@@ -6,6 +6,7 @@ import PokemonFactory.Pokemon.Pokemon;
 import PokemonFactory.PokemonEnum;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 public class BattleTrainerState extends BattleState {
     private Entity trainer;
@@ -56,13 +57,30 @@ public class BattleTrainerState extends BattleState {
                 return;
             }
         } else {
-            super.opponentTurn();
+            Random random = new Random();
+            opponentPokemon.getAttacks().get(random.nextInt(opponentPokemon.getAttacks().size())).use(playerPokemon, opponentPokemon);
+            displayBattleStatus();
+        }
+    }
+
+    @Override
+    protected void playerTurn() {
+        super.playerTurn();
+        if (opponentPokemon.isFainted()) {
+            if (canSwitchTrainerPokemon()) {
+                switchTrainerPokemonAutomatically();
+            } else {
+                handleVictory();
+                return;
+            }
+        } else {
+            opponentTurn();
         }
     }
 
     private boolean canSwitchTrainerPokemon() {
         for (Pokemon pokemon : trainer.getPokemons()) {
-            if (!pokemon.isFainted()) {
+            if (!pokemon.isFainted() && pokemon != opponentPokemon) {
                 return true;
             }
         }
@@ -70,11 +88,11 @@ public class BattleTrainerState extends BattleState {
     }
 
     private void switchTrainerPokemonAutomatically() {
-        System.out.println("HEYYY");
         for (Pokemon pokemon : trainer.getPokemons()) {
-            if (!pokemon.isFainted()) {
+            if (!pokemon.isFainted() && pokemon != opponentPokemon) {
                 opponentPokemon = pokemon;
                 System.out.println("Trainer switches to " + opponentPokemon.getName());
+                displayBattleStartMessage();
                 break;
             }
         }
@@ -85,7 +103,6 @@ public class BattleTrainerState extends BattleState {
         if (trainerType == 1) {
             switch (GameContext.getInstance().getInitialChoice()) {
                 case 1:
-
                     pokemons.add(FactoryClient.getPokemon(PokemonEnum.BULBASAUR, 40, 10, 40, 30, 30));
                     pokemons.add(FactoryClient.getPokemon(PokemonEnum.SQUIRTALE, 40, 10, 40, 30, 25));
                     break;
@@ -96,12 +113,12 @@ public class BattleTrainerState extends BattleState {
                 case 3:
                     pokemons.add(FactoryClient.getPokemon(PokemonEnum.CHARMANDER, 25, 10, 25, 0, 45));
                     pokemons.add(FactoryClient.getPokemon(PokemonEnum.BULBASAUR, 40, 10, 40, 30, 30));
+                    break;
                 default:
                     System.out.println("Invalid initial choice.");
                     break;
             }
         } else {
-            System.out.println("Choosing Owlucca and Snorlax for mysterious trainer.");
             pokemons.add(FactoryClient.getPokemon(PokemonEnum.OWLUCA, 50, 15, 50, 30, 20));
             pokemons.add(FactoryClient.getPokemon(PokemonEnum.SNORLAX, 35, 10, 35, 30, 5));
         }

@@ -107,15 +107,20 @@ public abstract class BattleState implements GameState {
         int selection = scanner.nextInt();
         scanner.nextLine();
         if (selection == 1) {
-            if (Buyable.getItem("Pokeball") != null) {
-                try {
-                    Buyable.getItem("Pokeball").use(opponentPokemon, playerPokemon);
-                } catch (Exception e) {
-                    System.out.println("Something went wrong");
+            if(canRun()){
+                if (Buyable.getItem("Pokeball") != null) {
+                    try {
+                        Buyable.getItem("Pokeball").use(opponentPokemon, playerPokemon);
+                    } catch (Exception e) {
+                        System.out.println("Something went wrong");
+                    }
+                } else {
+                    System.out.println("You don't have pokeballs...");
                 }
-            } else {
-                System.out.println("You don't have pokeballs...");
+            }else{
+                System.out.println("You can't use a pokeball against a trainer");
             }
+
         } else if (selection == 2) {
             if (Buyable.getItem("Potion") != null) {
                 try {

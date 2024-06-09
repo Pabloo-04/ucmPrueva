@@ -15,7 +15,13 @@ public class ChoosingPokemonState implements GameState{
         System.out.println("NPC: You want to go in? Here, I'll give you a couple of things that can help! (the NPC has has given you 100 coins, lucky you!).");
         System.out.println("Press Enter to continue...");
         sc.nextLine();
-        System.out.println("NPC: Here, to help you in your journey, choose one of these pokemons. I hope they help in your adventure!");
+        System.out.println("NPC: That's all I have left. When the pokemon went crazy, they stole all my money!");
+        System.out.println("Press Enter to continue...");
+        sc.nextLine();
+        System.out.println("NPC: Surely whenever you defeat one, they'll drop some of the money they stole from me! Those darn pokemon...");
+        System.out.println("Press Enter to continue...");
+        sc.nextLine();
+        System.out.println("NPC: Anyway, here, to help you in your journey, choose one of these pokemon. I hope they help in your adventure!");
 
         boolean validChoice = false;
         while(!validChoice) {
@@ -47,6 +53,7 @@ public class ChoosingPokemonState implements GameState{
         }
         System.out.println("NPC: Remember, Pokemons that are faster than yours attack first, so be careful! ");
         System.out.println("Press Enter to continue...");
+        sc.nextLine();
         sc.nextLine();
         System.out.println("NPC: Oh, and one more thing! I've heard people say there is an extremely rare pokemon roaming around... beware if you find it, it must be very powerful!");
         System.out.println("Press Enter to continue...");

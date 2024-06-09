@@ -30,11 +30,14 @@ public class InventoryState implements GameState{
             }
         }
 
-        System.out.println("Press 1 to exit bag");
+        System.out.println("Press 1 to change pokemon team");
+        System.out.println("Press 2 to return to pause menu");
         Scanner scanner = new Scanner(System.in);
         int choice = scanner.nextInt();
 
         if (choice == 1) {
+            GameContext.getInstance().setState(new SwitchPokemonState());
+        } else if (choice == 2) {
             GameContext.getInstance().setState(new PauseState());
         }
     }
