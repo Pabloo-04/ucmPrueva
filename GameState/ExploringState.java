@@ -71,15 +71,16 @@ public class ExploringState implements GameState {
     private void battleTrainer() {
         GameContext context = GameContext.getInstance();
         context.checkLevel();
-        System.out.println(GameContext.getInstance().Gamelevel);
         int gameLevel = context.getGamelevel();
+
         if (gameLevel == 2) {
 
             context.setState(new BattleTrainerState(new Entity("Manolo", BattleTrainerState.createTrainerPokemons(1), 0, 0)));
-        } else if (gameLevel == 3) {
+        } else if (gameLevel == 3 || gameLevel == 4) {
             System.out.println("Manolo went crying out of campus :(");
             context.setState(new ExploringState());
         } else {
+
             System.out.println("You are not ready to battle me!");
             context.setState(new ExploringState());
         }
